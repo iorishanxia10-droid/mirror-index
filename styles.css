@@ -184,14 +184,22 @@ select { width: 100%; padding: .62rem .75rem; border: 1px solid var(--line); bor
 .support-overview { margin-bottom: 1rem; padding: 1rem; border: 1px solid var(--strong-line); background: var(--paper); }
 .support-overview strong { font-family: "Yu Mincho", serif; }
 .support-overview p { margin: .35rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.55; }
-.support-recommendations { display: grid; gap: .65rem; }
+.support-recommendations { display: grid; gap: 1.25rem; }
+.support-sinner-group { display: grid; gap: .55rem; }
+.support-sinner-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .35rem; border-bottom: 1px solid var(--strong-line); }
+.support-sinner-head h3 { margin: 0; font: 700 1rem "Yu Mincho", serif; }
+.support-sinner-head span { color: var(--muted); font: .66rem Consolas, monospace; }
+.support-candidate-list { display: grid; gap: .55rem; }
 .support-card { display: grid; grid-template-columns: 74px 1fr; gap: .9rem; padding: .85rem; border: 1px solid var(--line); background: var(--paper); }
 .support-card.top-support { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
 .support-card img { width: 74px; height: 96px; object-fit: cover; object-position: center 20%; background: var(--surface-2); }
 .support-card-head { display: flex; justify-content: space-between; gap: .8rem; }
 .support-card-head h3 { margin: 0; font: 700 .93rem "Yu Mincho", serif; }
 .support-card-head p { margin: .2rem 0 0; color: var(--muted); font-size: .68rem; }
+.candidate-number { display: inline-grid; place-items: center; width: 1.25rem; height: 1.25rem; margin-right: .4rem; border: 1px solid var(--strong-line); color: var(--accent); font: 700 .64rem Consolas, monospace; }
+.match-badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .3rem; }
 .match-rank { flex: none; align-self: start; padding: .2rem .42rem; border: 1px solid var(--accent); color: var(--accent); font: 700 .68rem Consolas, monospace; }
+.starter-badge { flex: none; align-self: start; padding: .2rem .42rem; border: 1px solid var(--strong-line); color: var(--ink); font: 700 .68rem Consolas, monospace; }
 .passive-name { margin: .65rem 0 .25rem; font-weight: 700; font-size: .78rem; }
 .passive-effect { margin: 0; white-space: pre-line; color: var(--muted); font-size: .7rem; line-height: 1.6; }
 .match-reasons { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .65rem; }

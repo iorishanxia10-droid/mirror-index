@@ -9,21 +9,28 @@
 
   function scoreSupport(solo, candidate) {
     const passive = candidate.support;
+    const resonance = passive.condition.includes("共鳴");
+    const starter = candidate.name === "LCB囚人";
     let score = 0;
     let ready = true;
     const reasons = [];
 
-    Object.entries(passive.requirements).forEach(([sin, required]) => {
-      const count = solo.affinities[sin] || 0;
-      if (count) {
-        score += (passive.condition.includes("共鳴") ? 4 : 3) + Math.min(count, 3);
-        reasons.push(`${sin}${required}${passive.condition}を自力で狙える`);
-      } else {
-        score -= 8;
-        ready = false;
-        reasons.push(`${sin}はギフト等で補助が必要`);
-      }
-    });
+    if (resonance) {
+      Object.entries(passive.requirements).forEach(([sin, required]) => {
+        const count = solo.affinities[sin] || 0;
+        if (count) {
+          score += 4 + Math.min(count, 3);
+          reasons.push(`${sin}${required}共鳴を自力で狙える`);
+        } else {
+          score -= 10;
+          ready = false;
+          reasons.push(`${sin}共鳴に対応するスキルなし`);
+        }
+      });
+    } else {
+      score += 3;
+      reasons.push("保有条件は鏡ギフトの資源で達成可能");
+    }
 
     solo.keywords.forEach(keyword => {
       if (!passive.effect.includes(keyword)) return;
@@ -39,18 +46,22 @@
     if (sustain.test(passive.effect)) { score += 2; reasons.push("継戦支援"); }
     if (speed.test(passive.effect)) { score += 1; reasons.push("速度支援"); }
     if (soloTarget.test(passive.effect)) { score += 2; reasons.push("単騎なら対象が安定"); }
+    if (starter) { score += 1.5; reasons.push("初期人格で用意しやすい"); }
 
-    return { candidate, score, ready, reasons: [...new Set(reasons)].slice(0, 4) };
+    return { candidate, score, ready, starter, reasons: [...new Set(reasons)].slice(0, 5) };
   }
 
-  function recommendations(solo, identities) {
-    const bestBySinner = new Map();
+  function recommendations(solo, identities, perSinner = 3) {
+    const bySinner = new Map();
     identities.filter(identity => identity.sinner !== solo.sinner && identity.support).forEach(candidate => {
-      const result = scoreSupport(solo, candidate);
-      const current = bestBySinner.get(candidate.sinner);
-      if (!current || result.score > current.score) bestBySinner.set(candidate.sinner, result);
+      if (!bySinner.has(candidate.sinner)) bySinner.set(candidate.sinner, []);
+      bySinner.get(candidate.sinner).push(scoreSupport(solo, candidate));
     });
-    return [...bestBySinner.values()].sort((a, b) => b.score - a.score || a.candidate.sinner.localeCompare(b.candidate.sinner, "ja"));
+    const compare = (a, b) => b.score - a.score || Number(b.starter) - Number(a.starter) || a.candidate.code.localeCompare(b.candidate.code);
+    return [...bySinner.entries()].map(([sinner, candidates]) => ({
+      sinner,
+      candidates: candidates.sort(compare).slice(0, perSinner)
+    })).sort((a, b) => compare(a.candidates[0], b.candidates[0]) || a.sinner.localeCompare(b.sinner, "ja"));
   }
 
   window.SUPPORT_RANKING = { scoreSupport, recommendations };

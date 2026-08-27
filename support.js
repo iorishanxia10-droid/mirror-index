@@ -48,20 +48,28 @@
     $("soloPreview").innerHTML = `<img class="solo-portrait" src="${image(identity)}" alt=""><h3>${escape(identity.name)}</h3><p>${escape(identity.sinner)} · ${identity.physical.map(type => `${type}撃`).join(" / ") || "攻撃属性なし"}</p><div class="tag-row">${keywordTags}${affinityTags}</div>`;
     $("soloPreview").querySelector("img").onerror = event => event.currentTarget.hidden = true;
 
-    const ranked = recommendations(identity, identities);
-    $("supportOverview").innerHTML = `<strong>${escape(identity.name)}の控え候補</strong><p>${escape(identity.keywords.join("・") || "固有キーワードなし")}と、${escape(Object.keys(identity.affinities).join("・"))}のスキル構成を基準に、各囚人から最も噛み合う1人格を表示しています。</p>`;
-    $("supportRecommendations").replaceChildren(...ranked.map((result, index) => supportCard(result, index)));
+    const groups = recommendations(identity, identities);
+    $("supportOverview").innerHTML = `<strong>${escape(identity.name)}の控え候補</strong><p>保有条件は鏡ダンジョンのギフトで資源を確保できる前提で全候補を比較。共鳴条件のみ、${escape(Object.keys(identity.affinities).join("・"))}のスキル色との相性を重視しています。各囚人3候補をすべて展開表示します。</p>`;
+    $("supportRecommendations").replaceChildren(...groups.map(supportGroup));
   }
 
-  function supportCard({ candidate, score, ready, reasons }, index) {
+  function supportGroup({ sinner, candidates }) {
+    const section = document.createElement("section");
+    section.className = "support-sinner-group";
+    section.innerHTML = `<div class="support-sinner-head"><h3>${escape(sinner)}</h3><span>候補 ${candidates.length}件</span></div><div class="support-candidate-list"></div>`;
+    section.querySelector(".support-candidate-list").replaceChildren(...candidates.map(supportCard));
+    return section;
+  }
+
+  function supportCard({ candidate, score, ready, starter, reasons }, index) {
     const card = document.createElement("article");
-    card.className = `support-card${index < 3 ? " top-support" : ""}`;
+    card.className = `support-card${index === 0 ? " top-support" : ""}`;
     const requirements = Object.entries(candidate.support.requirements).map(([sin, count]) => `<span style="color:${sinColors[sin]}">${escape(sin)}${count}</span>`).join("＋") || "条件なし";
-    const rank = !ready ? "要補助" : score >= 13 ? "最適" : score >= 8 ? "好相性" : "候補";
+    const rank = !ready ? "共鳴不可" : score >= 13 ? "最適" : score >= 8 ? "好相性" : "候補";
     card.innerHTML = `
       <img src="${image(candidate)}" alt="" loading="lazy">
       <div>
-        <div class="support-card-head"><div><h3>${escape(candidate.sinner)}／${escape(candidate.name)}</h3><p>${escape(candidate.physical.map(type => `${type}撃`).join(" / "))}</p></div><span class="match-rank">${rank}</span></div>
+        <div class="support-card-head"><div><h3><span class="candidate-number">${index + 1}</span>${escape(candidate.name)}</h3><p>${escape(candidate.physical.map(type => `${type}撃`).join(" / "))}</p></div><div class="match-badges">${starter ? '<span class="starter-badge">初期人格</span>' : ""}<span class="match-rank">${rank}</span></div></div>
         <p class="passive-name">${escape(candidate.support.name)} <span class="passive-condition">［${escape(candidate.support.condition)}：${requirements}］</span></p>
         <p class="passive-effect">${escape(candidate.support.effect)}</p>
         <div class="match-reasons">${reasons.map(reason => `<span class="match-reason">${escape(reason)}</span>`).join("")}</div>
