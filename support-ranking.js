@@ -7,6 +7,11 @@
   const soloTarget = /味方1名|味方が|最も(?:高|低|多|少|速)/;
   const physicalNames = { "斬": "斬撃", "貫": "貫通", "打": "打撃" };
 
+  function fixedDamageBonus(effect) {
+    const values = [...effect.matchAll(/(?:与)?ダメージ量(?:増加)?\+(\d+)(?:\/(\d+))?%/g)].flatMap(match => match.slice(1).filter(Boolean).map(Number));
+    return Math.max(0, ...values);
+  }
+
   function scoreSupport(solo, candidate) {
     const passive = candidate.support;
     const resonance = passive.condition.includes("共鳴");
@@ -42,10 +47,17 @@
       score += 3;
       reasons.push(`${physicalNames[type]}を強化`);
     });
-    if (firepower.test(passive.effect)) { score += 3; reasons.push("火力支援"); }
+    const damageBonus = fixedDamageBonus(passive.effect);
+    if (damageBonus) {
+      score += Math.min(damageBonus / 2, 12);
+      reasons.push(`ダメージ+${damageBonus}%`);
+    } else if (firepower.test(passive.effect)) {
+      score += 3;
+      reasons.push("火力支援");
+    }
     if (sustain.test(passive.effect)) { score += 2; reasons.push("継戦支援"); }
     if (speed.test(passive.effect)) { score += 1; reasons.push("速度支援"); }
-    if (soloTarget.test(passive.effect)) { score += 2; reasons.push("単騎なら対象が安定"); }
+    if (soloTarget.test(passive.effect)) { score += 2; reasons.push("単騎なら対象が本人に固定"); }
     if (starter) { score += 1.5; reasons.push("初期人格で用意しやすい"); }
 
     return { candidate, score, ready, starter, reasons: [...new Set(reasons)].slice(0, 5) };

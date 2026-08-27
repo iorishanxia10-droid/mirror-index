@@ -20,4 +20,8 @@ const resonance = identities.find(identity => identity.support.condition === "�
 if (!context.window.SUPPORT_RANKING.scoreSupport(solo, owned).ready) throw new Error("鏡の資源保有条件が候補から外れています");
 if (context.window.SUPPORT_RANKING.scoreSupport(solo, resonance).ready) throw new Error("共鳴できないスキル色を発動可能と判定しています");
 if (!context.window.SUPPORT_RANKING.scoreSupport(solo, identities.find(identity => identity.name === "LCB囚人" && identity.sinner !== solo.sinner)).starter) throw new Error("初期人格の判定に失敗しました");
+const rodionGroup = ranked.find(group => group.sinner === "ロージャ");
+const hongLuGroup = ranked.find(group => group.sinner === "ホンル");
+if (!rodionGroup.candidates.some(result => result.candidate.code === "0901" && result.reasons.includes("ダメージ+20%"))) throw new Error("LCB囚人ロージャの火力評価に失敗しました");
+if (!hongLuGroup.candidates.some(result => result.candidate.code === "0603" && result.reasons.includes("ダメージ+20%"))) throw new Error("ぽんぽん派ホンルの火力評価に失敗しました");
 console.log(`OK: ${identities.length} identities / ${candidates.length} recommendations across ${ranked.length} sinners`);
