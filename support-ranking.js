@@ -73,7 +73,7 @@
     return [...bySinner.entries()].map(([sinner, candidates]) => ({
       sinner,
       candidates: candidates.sort(compare).slice(0, perSinner)
-    })).sort((a, b) => compare(a.candidates[0], b.candidates[0]) || a.sinner.localeCompare(b.sinner, "ja"));
+    })).sort((a, b) => Number(a.candidates[0].candidate.code.slice(0, 2)) - Number(b.candidates[0].candidate.code.slice(0, 2)));
   }
 
   window.SUPPORT_RANKING = { scoreSupport, recommendations };

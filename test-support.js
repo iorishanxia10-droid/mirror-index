@@ -12,6 +12,7 @@ const candidates = ranked.flatMap(group => group.candidates);
 if (identities.length < 185 || identities.some(identity => !identity.support)) throw new Error("人格またはサポートパッシブの欠損があります");
 if (ranked.length !== 11 || ranked.some(group => group.candidates.length !== 3)) throw new Error("囚人別3候補の推薦に失敗しました");
 if (new Set(ranked.map(group => group.sinner)).size !== 11 || candidates.length !== 33) throw new Error("囚人別推薦の集計に失敗しました");
+if (ranked.some((group, index) => index && Number(ranked[index - 1].candidates[0].candidate.code.slice(0, 2)) > Number(group.candidates[0].candidate.code.slice(0, 2)))) throw new Error("囚人番号順の表示に失敗しました");
 if (candidates.some(result => result.candidate.sinner === solo.sinner)) throw new Error("出撃囚人が控え候補に含まれています");
 if (!candidates.some(result => result.reasons.some(reason => reason.includes("破裂") || reason.includes("充電")))) throw new Error("キーワード推薦に失敗しました");
 
