@@ -1,0 +1,14 @@
+{
+  "name": "MIRROR INDEX — E.G.Oギフト逆引き",
+  "short_name": "MIRROR INDEX",
+  "description": "Limbus Company 鏡ダンジョン用 E.G.Oギフト逆引き・合成プランナー",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111617",
+  "theme_color": "#111617",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

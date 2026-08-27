@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#111617">
+  <meta name="description" content="Limbus Company 鏡ダンジョン用 E.G.Oギフト逆引き・合成プランナー">
+  <meta property="og:title" content="MIRROR INDEX — E.G.Oギフト逆引き">
+  <meta property="og:description" content="欲しいE.G.Oギフトから、入手パック・合成方法・必要素材をまとめて確認できます。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>MIRROR INDEX — E.G.Oギフト逆引き</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css?v=20260828-2">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="MIRROR INDEX トップへ">
+      <span class="brand-mark" aria-hidden="true">◇</span>
+      <span>MIRROR INDEX</span>
+    </a>
+    <button id="themeToggle" class="icon-button" type="button" aria-label="表示テーマを切り替える" title="表示テーマを切り替える">
+      <span id="themeIcon" aria-hidden="true">☾</span>
+      <span id="themeLabel">ダーク</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow">MIRROR DUNGEON / GIFT ROUTE FINDER</p>
+        <h1 id="pageTitle">欲しいギフトから、<br><em>取るべき鏡</em>を割り出す。</h1>
+        <p class="lead">E.G.Oギフトを複数選ぶと、限定パック・固定合成・必要な基礎素材をひとつの取得計画にまとめます。</p>
+      </div>
+      <div class="hero-stat" aria-label="収録データ概要">
+        <span class="hero-stat-label">INDEXED GIFTS</span>
+        <strong id="giftTotal">—</strong>
+        <span id="dataSummary">データ読込中</span>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="E.G.Oギフト選択ツール">
+      <aside class="filters">
+        <div class="section-head">
+          <div>
+            <span class="step">A</span>
+            <h2>ギフトを探す</h2>
+          </div>
+          <button id="clearFilters" class="text-button" type="button">絞り込み解除</button>
+        </div>
+
+        <label class="search-box">
+          <span class="sr-only">ギフト名で検索</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="ギフト名（日本語・英語）で検索">
+          <kbd>/</kbd>
+        </label>
+
+        <div>
+          <p class="filter-label">カテゴリー</p>
+          <div id="categoryFilters" class="category-list" role="group" aria-label="カテゴリー絞り込み"></div>
+        </div>
+
+        <div class="compact-filters">
+          <label>
+            <span>ランク</span>
+            <select id="tierFilter">
+              <option value="all">すべて</option>
+              <option value="1">Ⅰ</option><option value="2">Ⅱ</option><option value="3">Ⅲ</option>
+              <option value="4">Ⅳ</option><option value="5">Ⅴ</option>
+            </select>
+          </label>
+          <label>
+            <span>入手方法</span>
+            <select id="sourceFilter">
+              <option value="all">すべて</option>
+              <option value="fusion">固定合成</option>
+              <option value="pack">限定パック</option>
+              <option value="general">汎用</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="result-meta">
+          <span id="resultCount">0件</span>
+          <span>クリックで複数選択</span>
+        </div>
+        <div id="giftGrid" class="gift-grid" aria-live="polite"></div>
+        <button id="showMore" class="show-more" type="button" hidden>さらに表示</button>
+      </aside>
+
+      <section class="plan" aria-labelledby="planTitle">
+        <div class="section-head plan-head">
+          <div>
+            <span class="step">B</span>
+            <h2 id="planTitle">取得計画</h2>
+          </div>
+          <button id="clearSelection" class="text-button danger" type="button">選択をすべて外す</button>
+        </div>
+
+        <div id="emptyPlan" class="empty-plan">
+          <span aria-hidden="true">◇</span>
+          <strong>まだギフトが選ばれていません</strong>
+          <p>左の一覧から欲しいギフトを選んでください。</p>
+        </div>
+
+        <div id="planContent" hidden>
+          <div class="selection-strip">
+            <div>
+              <span class="filter-label">選択中</span>
+              <strong><span id="selectedCount">0</span> ギフト</strong>
+            </div>
+            <div id="selectedChips" class="selected-chips"></div>
+          </div>
+
+          <div class="summary-grid">
+            <article class="summary-card pack-summary">
+              <span class="summary-kicker">ROUTE</span>
+              <h3>狙う限定パック</h3>
+              <div id="packSummary"></div>
+            </article>
+            <article class="summary-card material-summary">
+              <span class="summary-kicker">MATERIAL</span>
+              <h3>合成用の基礎素材</h3>
+              <div id="materialSummary"></div>
+            </article>
+          </div>
+
+          <div class="detail-head">
+            <h3>ギフト別の入手方法</h3>
+            <p>複数レシピがある場合は、必要素材数と合計ランクが少ない経路を集計に使用します。</p>
+          </div>
+          <div id="giftDetails" class="gift-details"></div>
+        </div>
+      </section>
+    </section>
+
+    <nav class="mobile-nav" aria-label="スマートフォン用画面移動">
+      <button id="mobileGiftList" type="button">ギフト一覧</button>
+      <button id="mobilePlan" type="button" disabled>取得計画 <span id="mobileSelectedCount">0</span></button>
+    </nav>
+
+    <footer>
+      <p>非公式ファンツール。Project Moon および Limbus Company 公式とは関係ありません。</p>
+      <p>データ: <a href="https://limbuscompany.wiki.gg/wiki/List_of_E.G.O_Gifts" target="_blank" rel="noreferrer">Limbus Company Wiki</a> / <a href="https://limbus.eldritchtools.com/gifts" target="_blank" rel="noreferrer">Limbus Company Tools</a>（2026-08-28取得）</p>
+    </footer>
+  </main>
+
+  <template id="giftCardTemplate">
+    <button class="gift-card" type="button">
+      <span class="gift-image-wrap"><img class="gift-image" alt="" loading="lazy"><span class="tier-badge"></span></span>
+      <span class="gift-card-copy"><strong class="gift-name"></strong><span class="gift-category"></span></span>
+      <span class="checkmark" aria-hidden="true">✓</span>
+    </button>
+  </template>
+
+  <script src="data.js?v=20260828-2"></script>
+  <script src="app.js?v=20260828-2"></script>
+</body>
+</html>
