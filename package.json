@@ -7,7 +7,9 @@
     "predev": "node scripts/sync-public.mjs",
     "dev": "vinext dev",
     "prebuild": "node scripts/sync-public.mjs",
-    "build": "vinext build"
+    "build": "vinext build",
+    "test:data": "node test-data.js && node test-support.js",
+    "update:supports": "node scripts/build-support-data.mjs"
   },
   "dependencies": {
     "next": "16.2.6",
