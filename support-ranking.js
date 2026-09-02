@@ -8,6 +8,10 @@
   const physicalNames = { "斬": "斬撃", "貫": "貫通", "打": "打撃" };
   const giftKeywords = { Burn: "火傷", Bleed: "出血", Tremor: "振動", Rupture: "破裂", Sinking: "沈潜", Poise: "呼吸", Charge: "充電", Slash: "斬撃", Pierce: "貫通", Blunt: "打撃" };
 
+  function requiresParty(effect) {
+    return effect.split("\n").some(line => !line.includes("追加発動") && /(?:人格|人員)[^。]{0,60}[2-9]名以上/.test(line) && /発動/.test(line));
+  }
+
   function fixedDamageBonus(effect) {
     const values = [...effect.matchAll(/(?:与)?ダメージ量(?:増加)?\+(\d+)(?:\/(\d+))?%/g)].flatMap(match => match.slice(1).filter(Boolean).map(Number));
     return Math.max(0, ...values);
@@ -78,6 +82,7 @@
 
   function scoreGift(solo, gift) {
     const effect = gift.effect || "";
+    const eligible = !requiresParty(effect);
     let score = 0;
     const reasons = [];
     const keyword = giftKeywords[gift.keyword];
@@ -113,16 +118,12 @@
       score += 2;
       reasons.push("火力・マッチ性能を補助");
     }
-    if (/所属人格が[2-9]名以上|所属が[2-9]名以上|所属人格数÷/.test(effect)) {
-      score -= 18;
-      reasons.push("複数出撃の所属条件あり");
-    }
-    return { gift, score, reasons: [...new Set(reasons)].slice(0, 4) };
+    return { gift, score, eligible, reasons: [...new Set(reasons)].slice(0, 4) };
   }
 
   function giftRecommendations(solo, gifts, limit = 8) {
     return Object.entries(gifts).map(([id, gift]) => scoreGift(solo, { id, ...gift }))
-      .filter(result => result.score >= 7)
+      .filter(result => result.eligible && result.score >= 7)
       .sort((a, b) => b.score - a.score || Number(b.gift.tier) - Number(a.gift.tier) || a.gift.names[0].localeCompare(b.gift.names[0]))
       .slice(0, limit);
   }

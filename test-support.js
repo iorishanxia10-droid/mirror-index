@@ -30,4 +30,6 @@ const matchingResonance = identities.find(identity => identity.support.condition
 if (!context.window.SUPPORT_RANKING.scoreSupport(solo, matchingResonance).reasons.some(reason => reason.startsWith("S3の"))) throw new Error("S3属性だけを使う共鳴評価に失敗しました");
 const gifts = context.window.SUPPORT_RANKING.giftRecommendations(solo, context.window.GIFT_DATA);
 if (gifts.length !== 8 || !gifts.some(result => result.reasons.some(reason => reason.includes("破裂") || reason.includes("充電")))) throw new Error("人格別ギフト推薦に失敗しました");
+if (context.window.SUPPORT_RANKING.scoreGift(solo, { effect: "人格が5名以上なら、この戦闘の間発動" }).eligible) throw new Error("単騎で発動不能な人数条件を除外できていません");
+if (!context.window.SUPPORT_RANKING.scoreGift(solo, { effect: "基本威力+1\n人格が3名以上いるときに追加発動" }).eligible) throw new Error("一部だけ人数条件があるギフトまで除外しています");
 console.log(`OK: ${identities.length} identities / ${candidates.length} support recommendations / ${gifts.length} gift recommendations`);

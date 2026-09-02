@@ -1,5 +1,5 @@
-const CACHE = "mirror-index-20260902-1";
-const SHELL = ["./", "./index.html", "./styles.css?v=20260902-1", "./data.js?v=20260828-3", "./support-data.js?v=20260902-1", "./support-ranking.js?v=20260902-1", "./app.js?v=20260902-1", "./support.js?v=20260902-1", "./manifest.webmanifest", "./icon.svg", "./og.png"];
+const CACHE = "mirror-index-20260902-2";
+const SHELL = ["./", "./index.html", "./styles.css?v=20260902-2", "./data.js?v=20260828-3", "./support-data.js?v=20260902-2", "./support-ranking.js?v=20260902-2", "./app.js?v=20260902-2", "./support.js?v=20260902-2", "./manifest.webmanifest", "./icon.svg", "./og.png"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
