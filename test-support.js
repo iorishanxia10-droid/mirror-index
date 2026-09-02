@@ -4,6 +4,7 @@ import vm from "node:vm";
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync("support-data.js", "utf8"), context);
 vm.runInNewContext(fs.readFileSync("data.js", "utf8"), context);
+vm.runInNewContext(fs.readFileSync("gift-overrides.js", "utf8"), context);
 vm.runInNewContext(fs.readFileSync("support-ranking.js", "utf8"), context);
 const identities = context.window.IDENTITY_DATA;
 const solo = identities.find(identity => identity.code === "0116");
@@ -32,4 +33,9 @@ const gifts = context.window.SUPPORT_RANKING.giftRecommendations(solo, context.w
 if (gifts.length !== 8 || !gifts.some(result => result.reasons.some(reason => reason.includes("破裂") || reason.includes("充電")))) throw new Error("人格別ギフト推薦に失敗しました");
 if (context.window.SUPPORT_RANKING.scoreGift(solo, { effect: "人格が5名以上なら、この戦闘の間発動" }).eligible) throw new Error("単騎で発動不能な人数条件を除外できていません");
 if (!context.window.SUPPORT_RANKING.scoreGift(solo, { effect: "基本威力+1\n人格が3名以上いるときに追加発動" }).eligible) throw new Error("一部だけ人数条件があるギフトまで除外しています");
+const knifeRyoshu = identities.find(identity => identity.code === "0415");
+const knifeGifts = context.window.SUPPORT_RANKING.giftRecommendations(knifeRyoshu, context.window.GIFT_DATA);
+if (knifeGifts[0]?.gift.names[0] !== "赤くもつれた蜘蛛の巣" || !knifeGifts[0].reasons.some(reason => reason.includes("専用効果"))) throw new Error("人格専用ギフトの優先に失敗しました");
+if (knifeGifts.some(result => /^(業火|魅惑|惰性|欲望|蚕食|驕慢|摩擦)の欠片$/.test(result.gift.names[0]))) throw new Error("資源の欠片が単騎おすすめに含まれています");
+if (context.window.SUPPORT_RANKING.scoreGift(solo, { names: ["比較用"], effect: "攻撃レベル増加2" }).score <= context.window.SUPPORT_RANKING.scoreGift(solo, { names: ["比較用"], effect: "ダメージ量+10%" }).score) throw new Error("攻撃レベル増加の優先に失敗しました");
 console.log(`OK: ${identities.length} identities / ${candidates.length} support recommendations / ${gifts.length} gift recommendations`);

@@ -7,6 +7,7 @@
   const soloTarget = /味方1名|味方が|最も(?:高|低|多|少|速)/;
   const physicalNames = { "斬": "斬撃", "貫": "貫通", "打": "打撃" };
   const giftKeywords = { Burn: "火傷", Bleed: "出血", Tremor: "振動", Rupture: "破裂", Sinking: "沈潜", Poise: "呼吸", Charge: "充電", Slash: "斬撃", Pierce: "貫通", Blunt: "打撃" };
+  const resourceFragments = new Set(["業火の欠片", "魅惑の欠片", "惰性の欠片", "欲望の欠片", "蚕食の欠片", "驕慢の欠片", "摩擦の欠片"]);
 
   function requiresParty(effect) {
     return effect.split("\n").some(line => !line.includes("追加発動") && /(?:人格|人員)[^。]{0,60}[2-9]名以上/.test(line) && /発動/.test(line));
@@ -82,7 +83,7 @@
 
   function scoreGift(solo, gift) {
     const effect = gift.effect || "";
-    const eligible = !requiresParty(effect);
+    const eligible = !requiresParty(effect) && !resourceFragments.has(gift.names?.[0]);
     let score = 0;
     const reasons = [];
     const keyword = giftKeywords[gift.keyword];
@@ -100,6 +101,14 @@
       score += 14;
       reasons.push(`${affiliation}所属への専用効果`);
     });
+    if (effect.includes(`${solo.name} ${solo.sinner}専用効果`)) {
+      score += 40;
+      reasons.push(`${solo.name}専用効果`);
+    }
+    if (/\[編成(?:順)?1番人格専用効果\]/.test(effect)) {
+      score += 10;
+      reasons.push("単騎の編成1番で専用効果が発動");
+    }
     if (solo.s3 && effect.includes(solo.s3)) {
       score += 4;
       reasons.push(`S3の${solo.s3}属性と一致`);
@@ -118,7 +127,11 @@
       score += 2;
       reasons.push("火力・マッチ性能を補助");
     }
-    return { gift, score, eligible, reasons: [...new Set(reasons)].slice(0, 4) };
+    if (/攻撃レベル(?:増加|\+)/.test(effect)) {
+      score += 8;
+      reasons.push("攻撃レベル増加を優先");
+    }
+    return { gift, score, eligible, reasons: [...new Set(reasons)].slice(0, 6) };
   }
 
   function giftRecommendations(solo, gifts, limit = 8) {

@@ -62,6 +62,8 @@
   function giftSource(gift) {
     if (gift.fusion) return "固定合成";
     if (gift.exclusiveTo?.length) return `限定: ${gift.exclusiveTo.map(id => packs[id]?.name || id).join(" / ")}`;
+    const limited = gift.effect.match(/^限定ギフト：([^\n]+)/);
+    if (limited) return `限定: ${limited[1]}`;
     return "汎用入手";
   }
 

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync("data.js", "utf8"), context);
+vm.runInNewContext(fs.readFileSync("gift-overrides.js", "utf8"), context);
 const gifts = context.window.GIFT_DATA;
 const packs = context.window.PACK_DATA;
 
