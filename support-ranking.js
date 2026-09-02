@@ -6,6 +6,7 @@
   const speed = /クイック|速度|束縛/;
   const soloTarget = /味方1名|味方が|最も(?:高|低|多|少|速)/;
   const physicalNames = { "斬": "斬撃", "貫": "貫通", "打": "打撃" };
+  const giftKeywords = { Burn: "火傷", Bleed: "出血", Tremor: "振動", Rupture: "破裂", Sinking: "沈潜", Poise: "呼吸", Charge: "充電", Slash: "斬撃", Pierce: "貫通", Blunt: "打撃" };
 
   function fixedDamageBonus(effect) {
     const values = [...effect.matchAll(/(?:与)?ダメージ量(?:増加)?\+(\d+)(?:\/(\d+))?%/g)].flatMap(match => match.slice(1).filter(Boolean).map(Number));
@@ -22,14 +23,13 @@
 
     if (resonance) {
       Object.entries(passive.requirements).forEach(([sin, required]) => {
-        const count = solo.affinities[sin] || 0;
-        if (count) {
-          score += 4 + Math.min(count, 3);
-          reasons.push(`${sin}${required}共鳴を自力で狙える`);
+        if (solo.s3 === sin) {
+          score += 7;
+          reasons.push(`S3の${sin}で${required}共鳴を狙える`);
         } else {
           score -= 10;
           ready = false;
-          reasons.push(`${sin}共鳴に対応するスキルなし`);
+          reasons.push(`交換後のS3は${solo.s3 || "不明"}のため${sin}共鳴不可`);
         }
       });
     } else {
@@ -76,5 +76,56 @@
     })).sort((a, b) => Number(a.candidates[0].candidate.code.slice(0, 2)) - Number(b.candidates[0].candidate.code.slice(0, 2)));
   }
 
-  window.SUPPORT_RANKING = { scoreSupport, recommendations };
+  function scoreGift(solo, gift) {
+    const effect = gift.effect || "";
+    let score = 0;
+    const reasons = [];
+    const keyword = giftKeywords[gift.keyword];
+    if (keyword && solo.keywords.includes(keyword)) {
+      score += 12;
+      reasons.push(`${keyword}人格向け`);
+    }
+    if (keyword && solo.physical.some(type => physicalNames[type] === keyword)) {
+      score += 8;
+      reasons.push(`${keyword}スキルを強化`);
+    }
+    solo.affiliations?.forEach(affiliation => {
+      const aliases = affiliation === "LimbusCompany" ? ["LimbusCompany", "リンバス・カンパニー", "リンバス·カンパニー"] : [affiliation];
+      if (!aliases.some(alias => effect.includes(alias))) return;
+      score += 14;
+      reasons.push(`${affiliation}所属への専用効果`);
+    });
+    if (solo.s3 && effect.includes(solo.s3)) {
+      score += 4;
+      reasons.push(`S3の${solo.s3}属性と一致`);
+    }
+    if (/スキル3|スキルランク3/.test(effect)) {
+      score += 3;
+      reasons.push("交換後のS3運用を強化");
+    }
+    if (solo.keywords.some(value => effect.includes(value))) score += 3;
+    if (solo.physical.some(type => effect.includes(physicalNames[type]))) score += 2;
+    if (/体力.*回復|精神力.*回復|バリア|保護/.test(effect)) {
+      score += 2;
+      reasons.push("単騎の継戦力を補助");
+    }
+    if (/ダメージ量\+|コイン威力\+|最終威力\+|マッチ威力\+|攻撃レベル増加/.test(effect)) {
+      score += 2;
+      reasons.push("火力・マッチ性能を補助");
+    }
+    if (/所属人格が[2-9]名以上|所属が[2-9]名以上|所属人格数÷/.test(effect)) {
+      score -= 18;
+      reasons.push("複数出撃の所属条件あり");
+    }
+    return { gift, score, reasons: [...new Set(reasons)].slice(0, 4) };
+  }
+
+  function giftRecommendations(solo, gifts, limit = 8) {
+    return Object.entries(gifts).map(([id, gift]) => scoreGift(solo, { id, ...gift }))
+      .filter(result => result.score >= 7)
+      .sort((a, b) => b.score - a.score || Number(b.gift.tier) - Number(a.gift.tier) || a.gift.names[0].localeCompare(b.gift.names[0]))
+      .slice(0, limit);
+  }
+
+  window.SUPPORT_RANKING = { scoreSupport, recommendations, scoreGift, giftRecommendations };
 })();

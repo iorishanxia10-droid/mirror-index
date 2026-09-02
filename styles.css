@@ -184,6 +184,21 @@ select { width: 100%; padding: .62rem .75rem; border: 1px solid var(--line); bor
 .support-overview { margin-bottom: 1rem; padding: 1rem; border: 1px solid var(--strong-line); background: var(--paper); }
 .support-overview strong { font-family: "Yu Mincho", serif; }
 .support-overview p { margin: .35rem 0 0; color: var(--muted); font-size: .72rem; line-height: 1.55; }
+.solo-gift-section { display: grid; gap: .65rem; margin: 1.4rem 0 2.2rem; }
+.gift-recommendation-note { margin: 0; color: var(--muted); font-size: .7rem; line-height: 1.55; }
+.solo-gift-recommendations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+.solo-gift-card { display: flex; flex-direction: column; min-width: 0; padding: .85rem; border: 1px solid var(--line); background: var(--paper); }
+.solo-gift-card:first-child { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
+.solo-gift-head { display: grid; grid-template-columns: 1.35rem 52px 1fr; align-items: center; gap: .55rem; }
+.solo-gift-head img { width: 50px; height: 50px; object-fit: contain; background: radial-gradient(circle, var(--surface-2), transparent 68%); }
+.solo-gift-head h3 { margin: 0; font: 700 .84rem "Yu Mincho", serif; }
+.solo-gift-head p { margin: .2rem 0 0; color: var(--muted); font-size: .62rem; line-height: 1.35; }
+.gift-rank-number { display: grid; place-items: center; width: 1.35rem; height: 1.35rem; border: 1px solid var(--strong-line); color: var(--accent); font: 700 .68rem Consolas, monospace; }
+.solo-gift-effect { flex: 1; margin: .7rem 0; white-space: pre-line; color: var(--muted); font-size: .68rem; line-height: 1.55; }
+.add-plan-button { align-self: start; padding: .45rem .65rem; border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; font-size: .68rem; }
+.add-plan-button:disabled { border-color: var(--line); color: var(--muted); cursor: default; }
+.support-list-heading { margin: 0 0 1rem; padding-bottom: .55rem; border-bottom: 1px solid var(--strong-line); }
+.support-list-heading h3 { margin: .25rem 0 0; font: 700 1.2rem "Yu Mincho", serif; }
 .support-recommendations { display: grid; gap: 1.25rem; }
 .support-sinner-group { display: grid; gap: .55rem; }
 .support-sinner-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .35rem; border-bottom: 1px solid var(--strong-line); }
@@ -233,6 +248,7 @@ footer { display: flex; justify-content: space-between; gap: 2rem; padding: 1.4r
   .solo-preview { position: static; }
   .support-card { grid-template-columns: 58px 1fr; }
   .support-card img { width: 58px; height: 78px; }
+  .solo-gift-recommendations { grid-template-columns: 1fr; }
   .gift-grid, .summary-grid { grid-template-columns: 1fr; }
   .compact-filters { grid-template-columns: 1fr 1fr; }
   .detail-head { display: block; }

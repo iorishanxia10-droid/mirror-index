@@ -282,6 +282,16 @@
   if ($("mobileGiftList")) $("mobileGiftList").onclick = () => $("searchInput").scrollIntoView({ behavior: "smooth", block: "start" });
   if ($("mobilePlan")) $("mobilePlan").onclick = () => $("planTitle").scrollIntoView({ behavior: "smooth", block: "start" });
   if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+  window.MIRROR_INDEX = {
+    addGift(id) {
+      if (!gifts[id]) return false;
+      state.selected.add(id);
+      renderGifts();
+      renderPlan();
+      return true;
+    },
+    hasGift(id) { return state.selected.has(id); }
+  };
   document.addEventListener("keydown", event => {
     if (event.key === "/" && document.activeElement !== $("searchInput")) { event.preventDefault(); $("searchInput").focus(); }
   });

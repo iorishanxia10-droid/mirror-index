@@ -2,12 +2,17 @@
   "use strict";
 
   const identities = window.IDENTITY_DATA;
-  const { recommendations } = window.SUPPORT_RANKING;
+  const gifts = window.GIFT_DATA;
+  const packs = window.PACK_DATA;
+  const { recommendations, giftRecommendations } = window.SUPPORT_RANKING;
   const sinners = ["イサン", "ファウスト", "ドンキホーテ", "良秀", "ムルソー", "ホンル", "ヒースクリフ", "イシュメール", "ロージャ", "シンクレア", "ウーティス", "グレゴール"];
   const sinColors = { "憤怒": "#c94343", "色欲": "#d87532", "怠惰": "#d7a63c", "暴食": "#65a650", "憂鬱": "#4779bd", "傲慢": "#315e88", "嫉妬": "#7650a7" };
   const keywordColors = { "火傷": "#d9683d", "出血": "#c94343", "振動": "#d7a63c", "破裂": "#65a650", "沈潜": "#4779bd", "呼吸": "#79b3ba", "充電": "#6f61bd" };
+  const giftLabels = { Burn: "火傷", Bleed: "出血", Tremor: "振動", Rupture: "破裂", Sinking: "沈潜", Poise: "呼吸", Charge: "充電", Slash: "斬撃", Pierce: "貫通", Blunt: "打撃", Keywordless: "その他" };
+  const roman = { 1: "Ⅰ", 2: "Ⅱ", 3: "Ⅲ", 4: "Ⅳ", 5: "Ⅴ", EX: "EX" };
   const $ = id => document.getElementById(id);
   const image = identity => `https://limbus-assets.eldritchtools.com/assets/identities/${identity.id}_gacksung_profile.webp`;
+  const giftImage = gift => `https://limbus-assets.eldritchtools.com/assets/gifts/${encodeURIComponent(gift.imageKey)}.webp`;
   const escape = value => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
 
   sinners.forEach(sinner => {
@@ -43,14 +48,43 @@
     $("supportContent").hidden = !identity;
     if (!identity) return;
 
-    const affinityTags = Object.entries(identity.affinities).map(([sin, count]) => tag(`${sin} ×${count}`, sinColors[sin])).join("");
     const keywordTags = identity.keywords.map(keyword => tag(keyword, keywordColors[keyword])).join("");
-    $("soloPreview").innerHTML = `<img class="solo-portrait" src="${image(identity)}" alt=""><h3>${escape(identity.name)}</h3><p>${escape(identity.sinner)} · ${identity.physical.map(type => `${type}撃`).join(" / ") || "攻撃属性なし"}</p><div class="tag-row">${keywordTags}${affinityTags}</div>`;
+    const affiliationTags = (identity.affiliations || []).map(value => tag(value)).join("");
+    $("soloPreview").innerHTML = `<img class="solo-portrait" src="${image(identity)}" alt=""><h3>${escape(identity.name)}</h3><p>${escape(identity.sinner)} · ${identity.physical.map(type => `${type}撃`).join(" / ") || "攻撃属性なし"}</p><div class="tag-row">${tag(`S3 ${identity.s3}`, sinColors[identity.s3])}${keywordTags}${affiliationTags}</div>`;
     $("soloPreview").querySelector("img").onerror = event => event.currentTarget.hidden = true;
 
     const groups = recommendations(identity, identities);
-    $("supportOverview").innerHTML = `<strong>${escape(identity.name)}の控え候補</strong><p>保有条件は鏡ダンジョンのギフトで資源を確保できる前提で全候補を比較。共鳴条件のみ、${escape(Object.keys(identity.affinities).join("・"))}のスキル色との相性を重視しています。各囚人3候補をすべて展開表示します。</p>`;
+    $("supportOverview").innerHTML = `<strong>${escape(identity.name)}の単騎プラン</strong><p>S1・S2をS3へ交換する前提です。共鳴サポートはS3の${escape(identity.s3)}だけで判定し、保有条件は鏡ギフトで資源を確保できるものとして比較しています。</p>`;
+    $("soloGiftRecommendations").replaceChildren(...giftRecommendations(identity, gifts).map(giftCard));
     $("supportRecommendations").replaceChildren(...groups.map(supportGroup));
+  }
+
+  function giftSource(gift) {
+    if (gift.fusion) return "固定合成";
+    if (gift.exclusiveTo?.length) return `限定: ${gift.exclusiveTo.map(id => packs[id]?.name || id).join(" / ")}`;
+    return "汎用入手";
+  }
+
+  function giftCard({ gift, reasons }, index) {
+    const card = document.createElement("article");
+    card.className = "solo-gift-card";
+    card.innerHTML = `
+      <div class="solo-gift-head"><span class="gift-rank-number">${index + 1}</span><img src="${giftImage(gift)}" alt="" loading="lazy"><div><h3>${escape(gift.names[0])}</h3><p>${escape(giftLabels[gift.keyword] || gift.keyword)} · ${roman[gift.tier] || gift.tier} · ${escape(giftSource(gift))}</p></div></div>
+      <div class="match-reasons">${reasons.map(reason => `<span class="match-reason">${escape(reason)}</span>`).join("")}</div>
+      <p class="solo-gift-effect">${escape(gift.effect)}</p>
+      <button class="add-plan-button" type="button">取得計画に追加</button>`;
+    card.querySelector("img").onerror = event => event.currentTarget.hidden = true;
+    const button = card.querySelector("button");
+    if (window.MIRROR_INDEX?.hasGift(gift.id)) {
+      button.textContent = "取得計画に追加済み";
+      button.disabled = true;
+    }
+    button.onclick = () => {
+      if (!window.MIRROR_INDEX?.addGift(gift.id)) return;
+      button.textContent = "取得計画に追加済み";
+      button.disabled = true;
+    };
+    return card;
   }
 
   function supportGroup({ sinner, candidates }) {

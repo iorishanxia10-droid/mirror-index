@@ -15,7 +15,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260828-3">
+  <link rel="stylesheet" href="styles.css?v=20260902-1">
 </head>
 <body>
   <header class="topbar">
@@ -154,7 +154,7 @@
         <div class="section-head">
           <div><span class="step">S</span><h2>単騎人格を選ぶ</h2></div>
         </div>
-        <p class="support-intro">出撃する囚人と人格を選ぶと、保有資源・共鳴・キーワードを比較し、残り11名から各3人格を提案します。</p>
+        <p class="support-intro">出撃する囚人と人格を選ぶと、S3の共鳴色・キーワード・所属を比較し、取るべきギフトと残り11名の控え候補を提案します。</p>
         <div class="solo-selects">
           <label><span>出撃する囚人</span><select id="soloSinner"><option value="">囚人を選択</option></select></label>
           <label><span>使用する人格</span><select id="soloIdentity" disabled><option value="">先に囚人を選択</option></select></label>
@@ -173,6 +173,12 @@
         </div>
         <div id="supportContent" hidden>
           <div id="supportOverview" class="support-overview"></div>
+          <section class="solo-gift-section" aria-labelledby="soloGiftTitle">
+            <div class="support-sinner-head"><h3 id="soloGiftTitle">おすすめE.G.Oギフト</h3><span>上位8件</span></div>
+            <p class="gift-recommendation-note">キーワード・攻撃タイプ・S3属性・所属専用効果を比較。単騎で発動しない複数出撃条件は評価を下げています。</p>
+            <div id="soloGiftRecommendations" class="solo-gift-recommendations"></div>
+          </section>
+          <div class="support-list-heading"><span class="summary-kicker">SUPPORT PASSIVES</span><h3>控え人格の候補</h3></div>
           <div id="supportRecommendations" class="support-recommendations"></div>
         </div>
       </section>
@@ -180,7 +186,7 @@
 
     <footer>
       <p>非公式ファンツール。Project Moon および Limbus Company 公式とは関係ありません。</p>
-      <p>データ: <a href="https://wikiwiki.jp/lcbwiki/一覧表/パッシブスキル" target="_blank" rel="noreferrer">LimbusCompany攻略 Wiki</a> / <a href="https://limbus.eldritchtools.com" target="_blank" rel="noreferrer">Limbus Company Tools</a>（2026-08-28取得）</p>
+      <p>データ: <a href="https://wikiwiki.jp/lcbwiki/一覧表/パッシブスキル" target="_blank" rel="noreferrer">LimbusCompany攻略 Wiki</a> / <a href="https://limbus.eldritchtools.com" target="_blank" rel="noreferrer">Limbus Company Tools</a>（2026-09-02取得）</p>
     </footer>
   </main>
 
@@ -193,9 +199,9 @@
   </template>
 
   <script src="data.js?v=20260828-3"></script>
-  <script src="support-data.js?v=20260828-3"></script>
-  <script src="support-ranking.js?v=20260828-6"></script>
-  <script src="app.js?v=20260828-3"></script>
-  <script src="support.js?v=20260828-6"></script>
+  <script src="support-data.js?v=20260902-1"></script>
+  <script src="support-ranking.js?v=20260902-1"></script>
+  <script src="app.js?v=20260902-1"></script>
+  <script src="support.js?v=20260902-1"></script>
 </body>
 </html>
