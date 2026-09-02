@@ -115,7 +115,7 @@ select { width: 100%; padding: .62rem .75rem; border: 1px solid var(--line); bor
 .result-meta { display: flex; justify-content: space-between; margin: 1.2rem 0 .65rem; color: var(--muted); font-size: .72rem; }
 
 .gift-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
-.gift-card { position: relative; display: grid; grid-template-columns: 58px 1fr; align-items: center; min-height: 72px; padding: .45rem 2rem .45rem .45rem; overflow: hidden; text-align: left; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); background: var(--surface); cursor: pointer; transition: border-color .15s, transform .15s, background .15s; }
+.gift-card { position: relative; display: grid; grid-template-columns: 58px 1fr; align-items: center; min-height: 72px; padding: .45rem 2rem .45rem .45rem; overflow: hidden; text-align: left; touch-action: pan-y; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); background: var(--surface); cursor: pointer; transition: border-color .15s, transform .15s, background .15s; }
 .gift-card:hover { transform: translateY(-1px); border-color: var(--strong-line); }
 .gift-card.selected { border-color: var(--accent); background: color-mix(in srgb, var(--surface) 85%, var(--accent)); }
 .gift-image-wrap { position: relative; display: grid; place-items: center; width: 52px; height: 52px; background: radial-gradient(circle, var(--surface-2), transparent 68%); }
@@ -127,6 +127,17 @@ select { width: 100%; padding: .62rem .75rem; border: 1px solid var(--line); bor
 .checkmark { position: absolute; right: .5rem; top: 50%; opacity: 0; color: var(--accent); transform: translateY(-50%); }
 .gift-card.selected .checkmark { opacity: 1; }
 .show-more { width: 100%; margin-top: .65rem; padding: .75rem; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+
+.gift-preview-dialog { width: min(560px, calc(100vw - 1.5rem)); max-height: min(78vh, 720px); padding: 1.2rem; overflow: auto; border: 1px solid var(--strong-line); border-radius: var(--radius); color: var(--ink); background: var(--surface); box-shadow: 0 24px 70px rgba(0, 0, 0, .5); }
+.gift-preview-dialog::backdrop { background: rgba(5, 8, 9, .72); backdrop-filter: blur(3px); }
+.gift-preview-dialog form { display: flex; justify-content: flex-end; height: 0; }
+.gift-preview-close { position: relative; z-index: 1; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); color: var(--muted); background: var(--surface-2); cursor: pointer; font-size: 1.25rem; }
+.gift-preview-close:hover { color: var(--accent); border-color: var(--accent); }
+.gift-preview-head { display: grid; grid-template-columns: 76px 1fr; align-items: center; gap: 1rem; padding-right: 2.8rem; }
+.gift-preview-head img { width: 72px; height: 72px; object-fit: contain; background: radial-gradient(circle, var(--surface-2), transparent 68%); }
+.gift-preview-head h3 { margin: .35rem 0 .2rem; font: 700 1.25rem "Yu Mincho", serif; }
+.gift-preview-head p { margin: 0; color: var(--muted); font-size: .7rem; line-height: 1.5; }
+.gift-preview-effect { margin: 1.2rem 0 0; padding-top: 1rem; border-top: 1px solid var(--line); white-space: pre-line; color: var(--ink); font-size: .82rem; line-height: 1.75; }
 
 .empty-plan { min-height: 480px; display: grid; place-content: center; justify-items: center; text-align: center; color: var(--muted); }
 .empty-plan > span { margin-bottom: 1rem; color: var(--accent); font-size: 3rem; transform: rotate(23deg); }

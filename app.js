@@ -81,8 +81,64 @@
     card.querySelector(".tier-badge").textContent = roman[gift.tier] || gift.tier;
     card.querySelector(".gift-name").textContent = gift.names[0];
     card.querySelector(".gift-category").textContent = `${label(gift)}${gift.fusion ? " · 固定合成" : gift.exclusiveTo?.length ? " · パック限定" : ""}`;
-    card.addEventListener("click", () => toggleGift(gift.id));
+    addGiftCardInteractions(card, gift);
     return card;
+  }
+
+  function addGiftCardInteractions(card, gift) {
+    let timer = 0;
+    let longPressed = false;
+    let startX = 0;
+    let startY = 0;
+    const cancelTimer = () => {
+      clearTimeout(timer);
+      timer = 0;
+    };
+
+    card.addEventListener("pointerdown", event => {
+      if (event.button !== 0) return;
+      cancelTimer();
+      longPressed = false;
+      startX = event.clientX;
+      startY = event.clientY;
+      timer = setTimeout(() => {
+        timer = 0;
+        longPressed = true;
+        showGiftPreview(gift);
+      }, 550);
+    });
+    card.addEventListener("pointermove", event => {
+      if (Math.hypot(event.clientX - startX, event.clientY - startY) > 12) cancelTimer();
+    });
+    ["pointerup", "pointercancel", "pointerleave"].forEach(type => card.addEventListener(type, cancelTimer));
+    card.addEventListener("contextmenu", event => event.preventDefault());
+    card.addEventListener("click", event => {
+      if (longPressed) {
+        event.preventDefault();
+        longPressed = false;
+        return;
+      }
+      toggleGift(gift.id);
+    });
+  }
+
+  function showGiftPreview(gift) {
+    const dialog = $("giftPreviewDialog");
+    const image = $("giftPreviewImage");
+    image.style.display = "";
+    image.src = giftImage(gift);
+    image.alt = `${gift.names[0]}の画像`;
+    image.onerror = event => event.currentTarget.style.display = "none";
+    $("giftPreviewTitle").textContent = gift.names[0];
+    $("giftPreviewMeta").textContent = `${label(gift)} · ${roman[gift.tier] || gift.tier} · ${giftSource(gift)}`;
+    $("giftPreviewEffect").textContent = gift.effect;
+    if (!dialog.open) dialog.showModal();
+  }
+
+  function giftSource(gift) {
+    if (gift.fusion) return "固定合成";
+    if (gift.exclusiveTo?.length) return `限定: ${packNames(gift.exclusiveTo).join(" / ")}`;
+    return "汎用入手";
   }
 
   function toggleGift(id) {

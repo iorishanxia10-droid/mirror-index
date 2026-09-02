@@ -5,6 +5,10 @@ vm.runInNewContext(fs.readFileSync("data.js", "utf8"), context);
 vm.runInNewContext(fs.readFileSync("gift-overrides.js", "utf8"), context);
 const gifts = context.window.GIFT_DATA;
 const packs = context.window.PACK_DATA;
+const html = fs.readFileSync("index.html", "utf8");
+const app = fs.readFileSync("app.js", "utf8");
+
+if (!html.includes('id="giftPreviewDialog"') || !app.includes('addGiftCardInteractions(card, gift)')) throw new Error("ギフト長押し説明の配線が不足しています");
 
 if (Object.keys(gifts).length < 300) throw new Error("ギフトデータが不足しています");
 if (Object.keys(packs).length < 40) throw new Error("パックデータが不足しています");

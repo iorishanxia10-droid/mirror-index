@@ -15,7 +15,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260903-1">
+  <link rel="stylesheet" href="styles.css?v=20260903-2">
 </head>
 <body>
   <header class="topbar">
@@ -92,7 +92,7 @@
 
         <div class="result-meta">
           <span id="resultCount">0件</span>
-          <span>クリックで複数選択</span>
+          <span>タップで選択・長押しで効果</span>
         </div>
         <div id="giftGrid" class="gift-grid" aria-live="polite"></div>
         <button id="showMore" class="show-more" type="button" hidden>さらに表示</button>
@@ -198,11 +198,26 @@
     </button>
   </template>
 
-  <script src="data.js?v=20260903-1"></script>
-  <script src="gift-overrides.js?v=20260903-1"></script>
-  <script src="support-data.js?v=20260903-1"></script>
-  <script src="support-ranking.js?v=20260903-1"></script>
-  <script src="app.js?v=20260903-1"></script>
-  <script src="support.js?v=20260903-1"></script>
+  <dialog id="giftPreviewDialog" class="gift-preview-dialog" aria-labelledby="giftPreviewTitle" aria-describedby="giftPreviewEffect">
+    <form method="dialog">
+      <button class="gift-preview-close" type="submit" aria-label="説明を閉じる">×</button>
+    </form>
+    <div class="gift-preview-head">
+      <img id="giftPreviewImage" alt="">
+      <div>
+        <span class="summary-kicker">EFFECT / 効果</span>
+        <h3 id="giftPreviewTitle"></h3>
+        <p id="giftPreviewMeta"></p>
+      </div>
+    </div>
+    <p id="giftPreviewEffect" class="gift-preview-effect"></p>
+  </dialog>
+
+  <script src="data.js?v=20260903-2"></script>
+  <script src="gift-overrides.js?v=20260903-2"></script>
+  <script src="support-data.js?v=20260903-2"></script>
+  <script src="support-ranking.js?v=20260903-2"></script>
+  <script src="app.js?v=20260903-2"></script>
+  <script src="support.js?v=20260903-2"></script>
 </body>
 </html>
