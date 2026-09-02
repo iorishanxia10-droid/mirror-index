@@ -50,13 +50,14 @@
 
   function filteredGifts() {
     const query = state.search.toLowerCase();
+    const effectQuery = query.replace("ダメージアップ", "ダメージ量");
     return giftList.filter(gift => {
       if (state.category !== "all" && gift.keyword !== state.category) return false;
       if (state.tier !== "all" && gift.tier !== state.tier) return false;
       if (state.source === "fusion" && !gift.fusion) return false;
       if (state.source === "pack" && !gift.exclusiveTo?.length) return false;
       if (state.source === "general" && !isGeneral(gift)) return false;
-      return !query || gift.names.some(name => name.toLowerCase().includes(query)) || gift.enName.toLowerCase().includes(query);
+      return !query || gift.names.some(name => name.toLowerCase().includes(query)) || gift.enName.toLowerCase().includes(query) || gift.effect.toLowerCase().includes(effectQuery);
     }).sort((a, b) => Number(a.tier) - Number(b.tier) || a.names[0].localeCompare(b.names[0]));
   }
 

@@ -38,4 +38,12 @@ const knifeGifts = context.window.SUPPORT_RANKING.giftRecommendations(knifeRyosh
 if (knifeGifts[0]?.gift.names[0] !== "赤くもつれた蜘蛛の巣" || !knifeGifts[0].reasons.some(reason => reason.includes("専用効果"))) throw new Error("人格専用ギフトの優先に失敗しました");
 if (knifeGifts.some(result => /^(業火|魅惑|惰性|欲望|蚕食|驕慢|摩擦)の欠片$/.test(result.gift.names[0]))) throw new Error("資源の欠片が単騎おすすめに含まれています");
 if (context.window.SUPPORT_RANKING.scoreGift(solo, { names: ["比較用"], effect: "攻撃レベル増加2" }).score <= context.window.SUPPORT_RANKING.scoreGift(solo, { names: ["比較用"], effect: "ダメージ量+10%" }).score) throw new Error("攻撃レベル増加の優先に失敗しました");
+const slashSupport = { name: "比較用", support: { condition: "保有", requirements: {}, effect: "斬撃ダメージ量+10%" } };
+const pierceSupport = { name: "比較用", support: { condition: "保有", requirements: {}, effect: "貫通ダメージ量+10%" } };
+if (context.window.SUPPORT_RANKING.scoreSupport({ ...solo, physical: ["斬"] }, slashSupport).score <= context.window.SUPPORT_RANKING.scoreSupport({ ...solo, physical: ["斬"] }, pierceSupport).score) throw new Error("単騎人格の攻撃属性をサポート評価に反映できていません");
+const mixedGift = { names: ["一部だけ単騎対応"], effect: "スキル3の攻撃レベル+3、ダメージ量+40%\n他の味方が死亡したなら攻撃レベル増加8" };
+if (!context.window.SUPPORT_RANKING.scoreGift(solo, mixedGift).eligible || context.window.SUPPORT_RANKING.soloUsableEffect(mixedGift.effect).includes("死亡")) throw new Error("単騎で使える部分だけを評価できていません");
+const allyOnlyGift = { names: ["他者必須"], effect: "他の味方が攻撃したなら攻撃レベル増加5" };
+if (context.window.SUPPORT_RANKING.scoreGift(solo, allyOnlyGift).eligible || context.window.SUPPORT_RANKING.scoreGift(solo, allyOnlyGift).score) throw new Error("他の味方が必要な効果を単騎向けに採点しています");
+if (context.window.SUPPORT_RANKING.giftRecommendations(knifeRyoshu, context.window.GIFT_DATA).some(result => result.gift.names[0] === "心を閉ざす紅い布")) throw new Error("他の味方が必要なギフトが単騎おすすめに含まれています");
 console.log(`OK: ${identities.length} identities / ${candidates.length} support recommendations / ${gifts.length} gift recommendations`);

@@ -15,7 +15,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260902-3">
+  <link rel="stylesheet" href="styles.css?v=20260903-1">
 </head>
 <body>
   <header class="topbar">
@@ -59,9 +59,9 @@
         </div>
 
         <label class="search-box">
-          <span class="sr-only">ギフト名で検索</span>
+          <span class="sr-only">ギフト名または効果で検索</span>
           <span aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" autocomplete="off" placeholder="ギフト名（日本語・英語）で検索">
+          <input id="searchInput" type="search" autocomplete="off" placeholder="名前・効果で検索（例：攻撃レベル増加）">
           <kbd>/</kbd>
         </label>
 
@@ -175,7 +175,7 @@
           <div id="supportOverview" class="support-overview"></div>
           <section class="solo-gift-section" aria-labelledby="soloGiftTitle">
             <div class="support-sinner-head"><h3 id="soloGiftTitle">おすすめE.G.Oギフト</h3><span>上位8件</span></div>
-            <p class="gift-recommendation-note">キーワード・攻撃タイプ・S3属性・所属専用効果を比較。単騎で発動しない複数出撃条件は評価を下げています。</p>
+            <p class="gift-recommendation-note">キーワード・攻撃タイプ・S3属性・所属専用効果を比較。他の味方の攻撃・死亡が必要な部分は採点せず、単騎で使える効果だけを評価します。</p>
             <div id="soloGiftRecommendations" class="solo-gift-recommendations"></div>
           </section>
           <div class="support-list-heading"><span class="summary-kicker">SUPPORT PASSIVES</span><h3>控え人格の候補</h3></div>
@@ -198,11 +198,11 @@
     </button>
   </template>
 
-  <script src="data.js?v=20260902-3"></script>
-  <script src="gift-overrides.js?v=20260902-3"></script>
-  <script src="support-data.js?v=20260902-3"></script>
-  <script src="support-ranking.js?v=20260902-3"></script>
-  <script src="app.js?v=20260902-3"></script>
-  <script src="support.js?v=20260902-3"></script>
+  <script src="data.js?v=20260903-1"></script>
+  <script src="gift-overrides.js?v=20260903-1"></script>
+  <script src="support-data.js?v=20260903-1"></script>
+  <script src="support-ranking.js?v=20260903-1"></script>
+  <script src="app.js?v=20260903-1"></script>
+  <script src="support.js?v=20260903-1"></script>
 </body>
 </html>

@@ -13,6 +13,15 @@
     return effect.split("\n").some(line => !line.includes("追加発動") && /(?:人格|人員)[^。]{0,60}[2-9]名以上/.test(line) && /発動/.test(line));
   }
 
+  function soloUsableEffect(effect) {
+    let blocked = false;
+    return effect.split("\n").filter(line => {
+      if (!line.trim()) return false;
+      if (!/^\s*[-※]|^条件を全て満たした/.test(line)) blocked = /他の味方|自分を除(?:く|いて)[^。]*(?:味方|人格)|(?:味方|人格)[^。]{0,50}(?:死亡|退却)|(?:死亡|退却)[^。]{0,50}(?:味方|人格)/.test(line);
+      return !blocked;
+    }).join("\n");
+  }
+
   function fixedDamageBonus(effect) {
     const values = [...effect.matchAll(/(?:与)?ダメージ量(?:増加)?\+(\d+)(?:\/(\d+))?%/g)].flatMap(match => match.slice(1).filter(Boolean).map(Number));
     return Math.max(0, ...values);
@@ -49,15 +58,15 @@
     });
     solo.physical.forEach(type => {
       if (!passive.effect.includes(physicalNames[type])) return;
-      score += 3;
-      reasons.push(`${physicalNames[type]}を強化`);
+      score += 10;
+      reasons.push(`${physicalNames[type]}ダメージを強化`);
     });
     const damageBonus = fixedDamageBonus(passive.effect);
     if (damageBonus) {
-      score += Math.min(damageBonus / 2, 12);
+      score += Math.min(damageBonus, 20);
       reasons.push(`ダメージ+${damageBonus}%`);
     } else if (firepower.test(passive.effect)) {
-      score += 3;
+      score += 6;
       reasons.push("火力支援");
     }
     if (sustain.test(passive.effect)) { score += 2; reasons.push("継戦支援"); }
@@ -82,8 +91,11 @@
   }
 
   function scoreGift(solo, gift) {
-    const effect = gift.effect || "";
-    const eligible = !requiresParty(effect) && !resourceFragments.has(gift.names?.[0]);
+    const fullEffect = gift.effect || "";
+    const effect = soloUsableEffect(fullEffect);
+    const dedicated = fullEffect.includes(`${solo.name} ${solo.sinner}専用効果`);
+    const hasSoloEffect = effect.split("\n").some(line => line.trim() && !/^(限定ギフト|素材に限定ギフト|合成[:：]|\[.+専用効果\])/.test(line));
+    const eligible = !requiresParty(fullEffect) && !resourceFragments.has(gift.names?.[0]) && (hasSoloEffect || dedicated);
     let score = 0;
     const reasons = [];
     const keyword = giftKeywords[gift.keyword];
@@ -101,7 +113,7 @@
       score += 14;
       reasons.push(`${affiliation}所属への専用効果`);
     });
-    if (effect.includes(`${solo.name} ${solo.sinner}専用効果`)) {
+    if (dedicated) {
       score += 40;
       reasons.push(`${solo.name}専用効果`);
     }
@@ -141,5 +153,5 @@
       .slice(0, limit);
   }
 
-  window.SUPPORT_RANKING = { scoreSupport, recommendations, scoreGift, giftRecommendations };
+  window.SUPPORT_RANKING = { scoreSupport, recommendations, scoreGift, giftRecommendations, soloUsableEffect };
 })();
