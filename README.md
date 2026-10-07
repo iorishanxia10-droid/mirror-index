@@ -20,8 +20,16 @@ Limbus Company の鏡ダンジョン用 E.G.Oギフト逆引き・合成プラ�
 - [Limbus Company Tools](https://limbus.eldritchtools.com/gifts)
 - [Eldritch Tools 公開データ](https://github.com/eldritchtools/limbus-shared-library)
 
-2026-08-28 に取得した非公式データを使用しています。ゲーム更新後は内容が古くなる可能性があります。画像は Eldritch Tools の WebP アセットを表示します。
+2026-10-07 に取得した非公式データを使用しています。ゲーム更新後は内容が古くなる可能性があります。画像は Eldritch Tools の WebP アセットを表示します。
 
 ## ゲーム更新後
 
-新しいE.G.Oギフトが追加されたら、非公式Wikiの日本語名・効果とEldritch Toolsの合成・パック情報を取り直して `data.js` を更新し、再公開します。更新後は `node test-data.js` で欠損や参照切れを検査できます。
+`npm run update:gifts` でギフト・合成・パック（Eldritch Tools）と日本語名・効果（LimbusCompany攻略 Wiki）を取り直し、`npm run update:supports` で人格・サポートパッシブを取り直します。Wiki 未掲載のものは前回の日本語、無ければ英語のまま入ります。更新後は `node test-data.js` で欠損や参照切れを検査できます。
+
+## Android アプリ
+
+`android/` は `public/tool` を同梱して WebView で表示するだけのアプリです（ギフト画像以外はオフラインで動きます）。
+
+1. `node scripts/sync-public.mjs`（データ更新後に必ず実行）
+2. `android` で `JAVA_HOME=E:\jdk21\jdk-21.0.12.1+1` にして `gradlew.bat assembleDebug`
+3. `android/app/build/outputs/apk/debug/app-debug.apk` をインストール（`adb install -r`）

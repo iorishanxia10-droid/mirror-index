@@ -3,6 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const PASSIVE_URL = "https://wikiwiki.jp/lcbwiki/%E4%B8%80%E8%A6%A7%E8%A1%A8/%E3%83%91%E3%83%83%E3%82%B7%E3%83%96%E3%82%B9%E3%82%AD%E3%83%AB";
 const IDENTITY_URL = "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC%E3%83%BBEGO%E4%B8%80%E8%A6%A7/%E5%AF%BE%E5%BF%9C%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89/%E9%8F%A1%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E5%9F%BA%E6%BA%96";
 const ASSET_IDENTITY_URL = "https://raw.githubusercontent.com/eldritchtools/limbus-assets/main/data/identities.json";
+const ASSET_PASSIVE_URL = "https://raw.githubusercontent.com/eldritchtools/limbus-assets/main/data/passives.json";
 const sins = ["憤怒", "色欲", "怠惰", "暴食", "憂鬱", "傲慢", "嫉妬"];
 const sinNames = { wrath: "憤怒", lust: "色欲", sloth: "怠惰", gluttony: "暴食", gloom: "憂鬱", pride: "傲慢", envy: "嫉妬" };
 const keywords = ["火傷", "出血", "振動", "破裂", "沈潜", "呼吸", "充電"];
@@ -61,9 +62,21 @@ function skill3(row, assetIdentities) {
 }
 
 const [passivePath, identityPath] = process.argv.slice(2);
-const [passiveHtml, identityHtml, assetIdentities] = await Promise.all([
-  source(passivePath, PASSIVE_URL), source(identityPath, IDENTITY_URL), source(null, ASSET_IDENTITY_URL).then(JSON.parse)
+const [passiveHtml, identityHtml, assetIdentities, assetPassives] = await Promise.all([
+  source(passivePath, PASSIVE_URL), source(identityPath, IDENTITY_URL), source(null, ASSET_IDENTITY_URL).then(JSON.parse), source(null, ASSET_PASSIVE_URL).then(JSON.parse)
 ]);
+
+// Wiki 未掲載の新人格は Eldritch Tools の英語サポートパッシブで代用する
+function assetSupport(id) {
+  const passive = assetPassives.support[id]?.at(-1)?.passives?.[0];
+  if (!passive) return null;
+  return {
+    name: passive.name,
+    effect: passive.desc,
+    condition: passive.condition?.type === "res" ? "共鳴" : "保有",
+    requirements: Object.fromEntries((passive.condition?.requirement || []).map(({ type, value }) => [sinNames[type], value]))
+  };
+}
 const supports = new Map(allTableRows(passiveHtml).filter(row => /^\d{4}$/.test(row[0]) && /保有|共鳴/.test(row[5])).map(row => [row[0], {
   name: row[1],
   effect: row[4],
@@ -96,7 +109,7 @@ const identities = tableRows(identityHtml, 0, true).filter(row => /^\d{4}$/.test
   affinities: Object.fromEntries(sins.map((sin, index) => [sin, parseInt(row[index + 14]) || 0]).filter(([, value]) => value)),
   s3: skill3(row, assetIdentities),
   affiliations: affiliations([row[0], row[1], name]),
-  support: supports.get(row[0]) || null,
+  support: supports.get(row[0]) || assetSupport(String(10000 + Number(row[0]))),
   wiki: `https://wikiwiki.jp/lcbwiki/${["人格", row[3], name].map(encodeURIComponent).join("/")}`
   });
 });

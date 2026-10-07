@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   "use strict";
 
   const gifts = window.GIFT_DATA;
@@ -338,7 +338,7 @@
   $("clearSelection").onclick = () => { state.selected.clear(); renderGifts(); renderPlan(); };
   if ($("mobileGiftList")) $("mobileGiftList").onclick = () => $("searchInput").scrollIntoView({ behavior: "smooth", block: "start" });
   if ($("mobilePlan")) $("mobilePlan").onclick = () => $("planTitle").scrollIntoView({ behavior: "smooth", block: "start" });
-  if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+  if ("serviceWorker" in navigator && location.protocol.startsWith("http")) addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
   window.MIRROR_INDEX = {
     addGift(id) {
       if (!gifts[id]) return false;

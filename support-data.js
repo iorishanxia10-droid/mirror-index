@@ -1,821 +1,132 @@
 window.IDENTITY_DATA = [
   {
-    "id": "10616",
-    "code": "0616",
-    "name": "東部センク協会3課",
-    "sinner": "ホンル",
-    "date": "26/08/20",
-    "keywords": [
-      "火傷",
-      "呼吸"
-    ],
-    "physical": [
-      "貫"
-    ],
-    "affinities": {
-      "憤怒": 2,
-      "憂鬱": 3,
-      "傲慢": 1
-    },
-    "s3": "傲慢",
-    "affiliations": [
-      "センク協会"
-    ],
-    "support": {
-      "name": "退路を融かしておきますね",
-      "effect": "速度が最も高い味方が火傷または特殊火傷を保有した敵にマッチ勝利時、次のターンに束縛1を付与(1ターンにつき1回)\n-対象の火傷回数が4以下なら、追加でこのターンに対象の火傷回数が1増加\n-対象の火傷回数が5以上なら、追加でこのターンに火傷3を付与",
-      "condition": "共鳴",
-      "requirements": {
-        "憤怒": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%9B%E3%83%B3%E3%83%AB/%E6%9D%B1%E9%83%A8%E3%82%BB%E3%83%B3%E3%82%AF%E5%8D%94%E4%BC%9A3%E8%AA%B2"
-  },
-  {
-    "id": "10116",
-    "code": "0116",
-    "name": "LCE E.G.O:: 次元裂き",
-    "sinner": "イサン",
-    "date": "26/07/23",
-    "keywords": [
-      "破裂",
-      "充電"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "暴食": 2,
-      "傲慢": 3,
-      "嫉妬": 1
-    },
-    "s3": "嫉妬",
-    "affiliations": [
-      "LimbusCompany"
-    ],
-    "support": {
-      "name": "人ハ光ヨリモ迅ク逃ゲヨ",
-      "effect": "速度が最も高い味方1名が充電回数を得るか消耗するスキルを使用時、次のターンにクイック1を得る(1ターンにつき1回)",
-      "condition": "保有",
-      "requirements": {
-        "嫉妬": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B5%E3%83%B3/LCE%20E.G.O%3A%3A%20%E6%AC%A1%E5%85%83%E8%A3%82%E3%81%8D"
-  },
-  {
-    "id": "11216",
-    "code": "1216",
-    "name": "夜明事務所代表",
-    "sinner": "グレゴール",
-    "date": "26/07/09",
-    "keywords": [
-      "火傷",
-      "振動"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "憤怒": 1,
-      "怠惰": 3,
-      "傲慢": 2
-    },
-    "s3": "憤怒",
-    "affiliations": [
-      "夜明事務所"
-    ],
-    "support": {
-      "name": "スティグマ工房の義体",
-      "effect": "現体力が最も多い味方1名が、火傷を保有する敵へ攻撃的中時、振動2を付与(1ターンに1回)\n-対象の火傷が10以上なら、最終コイン的中時に振動爆発。対象の振動回数が1減少(1ターンにつき1回)\n本来は刃物だけを作るスティグマ工房が、夜明頃のフィクサーのために特別に制作してくれた義体。スティグマ工房の特性を理解していない者が使用すれば、この熱を噴き出す腕は装着者の身体までもを溶かすだろう。",
-      "condition": "共鳴",
-      "requirements": {
-        "憤怒": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B0%E3%83%AC%E3%82%B4%E3%83%BC%E3%83%AB/%E5%A4%9C%E6%98%8E%E4%BA%8B%E5%8B%99%E6%89%80%E4%BB%A3%E8%A1%A8"
-  },
-  {
-    "id": "10216",
-    "code": "0216",
-    "name": "夜明事務所フィクサー",
-    "sinner": "ファウスト",
-    "date": "26/07/09",
-    "keywords": [
-      "火傷",
-      "振動"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "憤怒": 1,
-      "怠惰": 2,
-      "傲慢": 3
-    },
-    "s3": "憤怒",
-    "affiliations": [
-      "夜明事務所"
-    ],
-    "support": {
-      "name": "孤独なフィクサー",
-      "effect": "戦闘開始時、生存した味方が待機人員を含めて1名なら、\n当該人格が攻撃レベル増加3,防御レベル増加3を得る",
-      "condition": "保有",
-      "requirements": {
-        "憤怒": 3,
-        "色欲": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%95%E3%82%A1%E3%82%A6%E3%82%B9%E3%83%88/%E5%A4%9C%E6%98%8E%E4%BA%8B%E5%8B%99%E6%89%80%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B5%E3%83%BC"
-  },
-  {
-    "id": "10916",
-    "code": "0916",
-    "name": "蜘蛛の巣 親指の親方",
-    "sinner": "ロージャ",
-    "date": "26/06/25",
-    "keywords": [
-      "火傷",
-      "振動"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "憤怒": 1,
-      "怠惰": 2,
-      "傲慢": 3
-    },
-    "s3": "憤怒",
-    "affiliations": [
-      "親指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "弱っちい連中め",
-      "effect": "速度が最も高い味方1名が敵へ振動爆発発動時、次のターンに攻撃レベル増加2を得る(1ターンにつき1回)\n-親指所属の場合、追加でクイック1を得る(1ターンにつき1回)",
-      "condition": "共鳴",
-      "requirements": {
-        "憤怒": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%A6%AA%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
-  },
-  {
-    "id": "10716",
-    "code": "0716",
-    "name": "蜘蛛の巣 親指の子方",
-    "sinner": "ヒースクリフ",
-    "date": "26/06/25",
-    "keywords": [
-      "火傷",
-      "振動"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "憤怒": 1,
-      "色欲": 3,
-      "怠惰": 2
-    },
-    "s3": "憤怒",
-    "affiliations": [
-      "親指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "一対一の決闘なら…。",
-      "effect": "速度が最も高い味方1名が基本攻撃スキルでマッチ勝利時、\n対象の敵の火傷回数が1増加(1ターンにつき1回)\n-親指人格に優先して適用\n-親指人格なら効果が強化され、代わりに対象の火傷回数と振動回数が1増加\n-戦闘開始時、敵が1名のみなら(幻想体の場合は本体を基準とする)、このパッシブ効果で付与する火傷回数と振動回数+1",
-      "condition": "共鳴",
-      "requirements": {
-        "憤怒": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%92%E3%83%BC%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%95/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%A6%AA%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
-  },
-  {
-    "id": "10615",
-    "code": "0615",
-    "name": "S社チュノックン",
-    "sinner": "ホンル",
-    "date": "26/06/11",
-    "keywords": [
-      "出血",
-      "呼吸"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "色欲": 2,
-      "暴食": 3,
-      "傲慢": 1
-    },
-    "s3": "傲慢",
-    "affiliations": [
-      "S社"
-    ],
-    "support": {
-      "name": "怒りに駆られた追撃",
-      "effect": "編成順が最も早い味方1名が、束縛の付与された敵を攻撃するとき、ダメージ量+10%",
-      "condition": "保有",
-      "requirements": {
-        "傲慢": 5
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%9B%E3%83%B3%E3%83%AB/S%E7%A4%BE%E3%83%81%E3%83%A5%E3%83%8E%E3%83%83%E3%82%AF%E3%83%B3"
-  },
-  {
-    "id": "10815",
-    "code": "0815",
-    "name": "LCD現場推理チーム",
-    "sinner": "イシュメール",
-    "date": "26/06/11",
-    "keywords": [
-      "出血",
-      "呼吸"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "憤怒": 3,
-      "憂鬱": 2,
-      "傲慢": 1
-    },
-    "s3": "傲慢",
-    "affiliations": [
-      "LimbusCompany"
-    ],
-    "support": {
-      "name": "斬り、殺すのみ",
-      "effect": "速度が最も高い味方1名の斬撃スキルの与ダメージ量+10%\n-その味方にクイックがあるなら、代わりに斬撃スキルダメージ量+15%",
-      "condition": "共鳴",
-      "requirements": {
-        "傲慢": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%A1%E3%83%BC%E3%83%AB/LCD%E7%8F%BE%E5%A0%B4%E6%8E%A8%E7%90%86%E3%83%81%E3%83%BC%E3%83%A0"
-  },
-  {
-    "id": "11115",
-    "code": "1115",
-    "name": "蜘蛛の巣 中指の親方",
-    "sinner": "ウーティス",
-    "date": "26/05/28",
-    "keywords": [
-      "火傷",
-      "出血"
-    ],
-    "physical": [
-      "打"
-    ],
-    "affinities": {
-      "色欲": 3,
-      "嫉妬": 3
-    },
-    "s3": "嫉妬",
-    "affiliations": [
-      "中指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "誰が家族に手を出しやがった",
-      "effect": "戦闘開始時、反撃を装着した味方にダメージ量増加1,保護1を付与(戦闘ごとに最大2回発動可能、マッチ可能反撃を除く)\n-効果を受ける対象が中指所属なら、代わりに嫉妬ダメージ量増加2,保護2を付与",
-      "condition": "共鳴",
-      "requirements": {
-        "嫉妬": 4
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E4%B8%AD%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
-  },
-  {
-    "id": "10415",
-    "code": "0415",
-    "name": "蜘蛛の巣の刀",
-    "sinner": "良秀",
-    "date": "26/05/14",
-    "keywords": [
-      "火傷",
-      "出血",
-      "呼吸"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "憤怒": 1,
-      "色欲": 3,
-      "傲慢": 2
-    },
-    "s3": "憤怒",
-    "affiliations": [
-      "小指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "師事",
-      "effect": "編成順が最も早い味方が基本スキル使用時、呼吸威力2を得る(1ターンにつき3回)",
-      "condition": "共鳴",
-      "requirements": {
-        "傲慢": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E8%89%AF%E7%A7%80/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%E3%81%AE%E5%88%80"
-  },
-  {
-    "id": "10715",
-    "code": "0715",
-    "name": "中指末兄",
-    "sinner": "ヒースクリフ",
-    "date": "26/04/30",
-    "keywords": [
-      "火傷",
-      "出血"
-    ],
-    "physical": [
-      "打"
-    ],
-    "affinities": {
-      "憤怒": 3,
-      "嫉妬": 3
-    },
-    "s3": "嫉妬",
-    "affiliations": [
-      "中指"
-    ],
-    "support": {
-      "name": "義理の鎖",
-      "effect": "戦闘中、中指所属の味方人格が死亡したなら、このターンと次のターンに全ての中指所属人格が攻撃威力増加1を得る(1ターンにつき1回)",
-      "condition": "保有",
-      "requirements": {
-        "嫉妬": 4
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%92%E3%83%BC%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%95/%E4%B8%AD%E6%8C%87%E6%9C%AB%E5%85%84"
-  },
-  {
-    "id": "10915",
-    "code": "0915",
-    "name": "薬指野獣派 ドーセント",
-    "sinner": "ロージャ",
-    "date": "26/04/16",
-    "keywords": [
-      "出血",
-      "沈潜"
-    ],
-    "physical": [
-      "打"
-    ],
-    "affinities": {
-      "色欲": 1,
-      "憂鬱": 3,
-      "嫉妬": 2
-    },
-    "s3": "色欲",
-    "affiliations": [
-      "薬指"
-    ],
-    "support": {
-      "name": "壊れないようにそーっと…",
-      "effect": "編成順が最も早い人格へ下記の効果を適用\n-色欲共鳴が奇数なら、出血威力付与値+1\n-色欲共鳴が偶数なら沈潜威力付与量+1\n-当該人格が薬指所属人格なら、戦闘開始時に攻撃レベル増加1または防御レベル増加1を得る",
-      "condition": "共鳴",
-      "requirements": {
-        "色欲": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3/%E8%96%AC%E6%8C%87%E9%87%8E%E7%8D%A3%E6%B4%BE%20%E3%83%89%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88"
-  },
-  {
-    "id": "10515",
-    "code": "0515",
-    "name": "薬指野獣派 スチューデント",
-    "sinner": "ムルソー",
-    "date": "26/04/16",
-    "keywords": [
-      "出血",
-      "沈潜"
-    ],
-    "physical": [
-      "打"
-    ],
-    "affinities": {
-      "憤怒": 3,
-      "色欲": 1,
-      "傲慢": 2
-    },
-    "s3": "色欲",
-    "affiliations": [
-      "薬指"
-    ],
-    "support": {
-      "name": "重ね描いた傷跡",
-      "effect": "速度が最も高い味方1名が攻撃的中時、対象のマイナス効果2種につき防御レベル減少1を付与(1ターンにつき最大1回、最大3)",
-      "condition": "保有",
-      "requirements": {
-        "色欲": 2,
-        "傲慢": 1
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%A0%E3%83%AB%E3%82%BD%E3%83%BC/%E8%96%AC%E6%8C%87%E9%87%8E%E7%8D%A3%E6%B4%BE%20%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%87%E3%83%B3%E3%83%88"
-  },
-  {
-    "id": "10614",
-    "code": "0614",
-    "name": "蜘蛛の巣 薬指の親方",
-    "sinner": "ホンル",
-    "date": "26/04/02",
-    "keywords": [
-      "出血",
-      "充電"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "色欲": 1,
-      "傲慢": 3,
-      "嫉妬": 2
-    },
-    "s3": "色欲",
-    "affiliations": [
-      "薬指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "走り回る観客は椅子に座って鑑賞なさってください",
-      "effect": "ターン終了時、最も速度が高い敵1名に、次のターンにて攻撃レベル減少2を付与して出血回数が1増加(集中戦闘の場合は部位で判定)",
-      "condition": "共鳴",
-      "requirements": {
-        "色欲": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%9B%E3%83%B3%E3%83%AB/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%96%AC%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
-  },
-  {
-    "id": "10215",
-    "code": "0215",
-    "name": "蜘蛛の巣 薬指の子方",
-    "sinner": "ファウスト",
-    "date": "26/04/02",
-    "keywords": [
-      "出血",
-      "充電"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "色欲": 1,
-      "暴食": 3,
-      "嫉妬": 2
-    },
-    "s3": "色欲",
-    "affiliations": [
-      "薬指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "アイアンメイデン-棘",
-      "effect": "このターンに守備スキルを装着した味方が被ダメージ時、攻撃者へ出血4を付与(1ターンにつき2回)\n-既に出血があるなら、代わりに攻撃者の出血回数が2増加",
-      "condition": "保有",
-      "requirements": {
-        "色欲": 1,
-        "嫉妬": 2
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%95%E3%82%A1%E3%82%A6%E3%82%B9%E3%83%88/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%96%AC%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
-  },
-  {
-    "id": "11215",
-    "code": "1215",
-    "name": "LCE E.G.O::AEDD",
-    "sinner": "グレゴール",
-    "date": "26/03/19",
-    "keywords": [
-      "破裂",
-      "充電"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "暴食": 3,
-      "憂鬱": 2,
-      "嫉妬": 1
-    },
-    "s3": "嫉妬",
-    "affiliations": [
-      "LimbusCompany"
-    ],
-    "support": {
-      "name": "除細動",
-      "effect": "編成順が最も早い味方2/3名がターン終了時、このターンにそれぞれの攻撃スキルを使用して消耗した充電回数と、消耗した特殊充電の合計だけそれぞれの体力を回復(最大10)",
-      "condition": "共鳴",
-      "requirements": {
-        "嫉妬": 4
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B0%E3%83%AC%E3%82%B4%E3%83%BC%E3%83%AB/LCE%20E.G.O%3A%3AAEDD"
-  },
-  {
-    "id": "10414",
-    "code": "0414",
-    "name": "ロボトミーE.G.O:: 残香・寂しさ",
-    "sinner": "良秀",
-    "date": "26/03/05",
-    "keywords": [
-      "振動",
-      "沈潜"
-    ],
-    "physical": [
-      "貫"
-    ],
-    "affinities": {
-      "怠惰": 3,
-      "憂鬱": 1,
-      "嫉妬": 2
-    },
-    "s3": "憂鬱",
-    "affiliations": [
-      "旧L社"
-    ],
-    "support": {
-      "name": "春の誕生",
-      "effect": "速度が最も高い味方1名が沈潜威力・回数、または特殊沈潜を付与するスキルで敵に的中時、振動2を付与して振動爆発。対象の振動回数が1減少(1ターンにつき1回)",
-      "condition": "共鳴",
-      "requirements": {
-        "怠惰": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E8%89%AF%E7%A7%80/%E3%83%AD%E3%83%9C%E3%83%88%E3%83%9F%E3%83%BCE.G.O%3A%3A%20%E6%AE%8B%E9%A6%99%E3%83%BB%E5%AF%82%E3%81%97%E3%81%95"
-  },
-  {
-    "id": "10514",
-    "code": "0514",
-    "name": "ロボトミーE.G.O:: ホーネット【変調】",
-    "sinner": "ムルソー",
-    "date": "26/03/05",
-    "keywords": [
-      "火傷",
-      "出血"
-    ],
-    "physical": [
-      "貫"
-    ],
-    "affinities": {
-      "憤怒": 3,
-      "色欲": 3
-    },
-    "s3": "憤怒",
-    "affiliations": [
-      "旧L社"
-    ],
-    "support": {
-      "name": "働き蜂",
-      "effect": "味方の貫通属性基本攻撃スキル終了時、その攻撃で与えた体力ダメージ量の10%だけ体力を回復(戦闘ごとに最大2回発動可能)\n-このターンの間、スキルスロットに装着した全ての基本攻撃スキルが貫通属性なら、ターン終了時に全味方の精神力を10回復",
-      "condition": "共鳴",
-      "requirements": {
-        "憤怒": 4
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%A0%E3%83%AB%E3%82%BD%E3%83%BC/%E3%83%AD%E3%83%9C%E3%83%88%E3%83%9F%E3%83%BCE.G.O%3A%3A%20%E3%83%9B%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%80%90%E5%A4%89%E8%AA%BF%E3%80%91"
-  },
-  {
-    "id": "10115",
-    "code": "0115",
-    "name": "蜘蛛の巣 人差し指の親方",
-    "sinner": "イサン",
-    "date": "26/02/19",
-    "keywords": [
-      "沈潜",
-      "呼吸"
-    ],
-    "physical": [
-      "打",
-      "貫",
-      "斬"
-    ],
-    "affinities": {
-      "暴食": 3,
-      "憂鬱": 1,
-      "傲慢": 2
-    },
-    "s3": "憂鬱",
-    "affiliations": [
-      "人差し指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "神の加護",
-      "effect": "このターンに味方が敵に初めて使用した斬撃・貫通・打撃基本攻撃スキルのダメージ量がそれぞれ+5%\n- 効果が適用されたスキルが人差し指所属人格のスキルなら、代わりに+10%\n- 攻撃開始前を基準に適用される",
-      "condition": "保有",
-      "requirements": {
-        "暴食": 1,
-        "憂鬱": 1,
-        "傲慢": 1
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B5%E3%83%B3/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E4%BA%BA%E5%B7%AE%E3%81%97%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
-  },
-  {
-    "id": "11015",
-    "code": "1015",
-    "name": "蜘蛛の巣 小指の子方",
-    "sinner": "シンクレア",
-    "date": "26/02/05",
-    "keywords": [
-      "出血",
-      "呼吸"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "憤怒": 1,
-      "憂鬱": 3,
-      "傲慢": 2
-    },
-    "s3": "憤怒",
-    "affiliations": [
-      "蜘蛛の巣",
-      "小指"
-    ],
-    "support": {
-      "name": "静念",
-      "effect": "速度が最も高い味方1名が守備スキルを装着している場合、戦闘開始時に精神力を5回復、バリア5を得る",
-      "condition": "共鳴",
-      "requirements": {
-        "傲慢": 2
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AC%E3%82%A2/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E5%B0%8F%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
-  },
-  {
-    "id": "11214",
-    "code": "1214",
-    "name": "ロボトミーE.G.O::ランプ",
-    "sinner": "グレゴール",
-    "date": "26/02/05",
-    "keywords": [
-      "火傷",
-      "沈潜"
-    ],
-    "physical": [
-      "貫"
-    ],
-    "affinities": {
-      "憤怒": 3,
-      "憂鬱": 2,
-      "傲慢": 1
-    },
-    "s3": "傲慢",
-    "affiliations": [
-      "LimbusCompany"
-    ],
-    "support": {
-      "name": "まだ救うべき命が残っていたのか",
-      "effect": "ターン終了時、マイナス効果を保有した味方のうち編成順が最も早い対象に下記の効果を適用\n-次のターンに最左端スロットが挑発値4を得る\n-次のターンに打撃ダメージ量増加1を得る",
-      "condition": "共鳴",
-      "requirements": {
-        "憤怒": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B0%E3%83%AC%E3%82%B4%E3%83%BC%E3%83%AB/%E3%83%AD%E3%83%9C%E3%83%88%E3%83%9F%E3%83%BCE.G.O%3A%3A%E3%83%A9%E3%83%B3%E3%83%97"
-  },
-  {
-    "id": "10814",
-    "code": "0814",
-    "name": "蜘蛛の巣 中指の子方",
-    "sinner": "イシュメール",
-    "date": "26/01/22",
-    "keywords": [
-      "火傷",
-      "出血"
-    ],
-    "physical": [
-      "打"
-    ],
-    "affinities": {
-      "憤怒": 2,
-      "色欲": 3,
-      "嫉妬": 1
-    },
-    "s3": "嫉妬",
-    "affiliations": [
-      "中指",
-      "蜘蛛の巣"
-    ],
-    "support": {
-      "name": "あなた…フィクサー的なの好きなんです？",
-      "effect": "編成順1番の基本攻撃スキルのマッチ威力+1(1ターンにつき1回)\n嫉妬共鳴が完全共鳴なら、編成順1番の基本スキルダメージ量+10%",
-      "condition": "共鳴",
-      "requirements": {
-        "嫉妬": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%A1%E3%83%BC%E3%83%AB/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E4%B8%AD%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
-  },
-  {
-    "id": "10314",
-    "code": "0314",
-    "name": "人差し指代行者- 開花E.G.O::代行",
+    "id": "10315",
+    "code": "0315",
+    "name": "オートクチュール:: ル・ノワール ブランドマネージャー",
     "sinner": "ドンキホーテ",
-    "date": "26/01/08",
-    "keywords": [
-      "沈潜",
-      "呼吸"
-    ],
-    "physical": [
-      "打",
-      "斬"
-    ],
-    "affinities": {
-      "色欲": 3,
-      "憂鬱": 1,
-      "傲慢": 2
-    },
-    "s3": "憂鬱",
-    "affiliations": [
-      "人差し指"
-    ],
-    "support": {
-      "name": "これもまた魔法のピピ様のご恩であろう",
-      "effect": "戦闘開始時、精神力が最も低い味方1名の精神力を15回復\n-加算コインを使用する人格へ優先して適用\n-対象が人差し指所属なら効果が強化され、追加でダメージ量増加を1付与\n-侵蝕、パニック状態などの精神力を回復できない対象には適応されない",
-      "condition": "共鳴",
-      "requirements": {
-        "憂鬱": 3
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%89%E3%83%B3%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86/%E4%BA%BA%E5%B7%AE%E3%81%97%E6%8C%87%E4%BB%A3%E8%A1%8C%E8%80%85-%20%E9%96%8B%E8%8A%B1E.G.O%3A%3A%E4%BB%A3%E8%A1%8C"
-  },
-  {
-    "id": "10214",
-    "code": "0214",
-    "name": "人差し指遂行者：【紙片】",
-    "sinner": "ファウスト",
-    "date": "25/12/31",
-    "keywords": [
-      "沈潜",
-      "呼吸"
-    ],
-    "physical": [
-      "斬"
-    ],
-    "affinities": {
-      "怠惰": 3,
-      "憂鬱": 1,
-      "傲慢": 2
-    },
-    "s3": "憂鬱",
-    "affiliations": [
-      "人差し指"
-    ],
-    "support": {
-      "name": "指令の導くまま…。",
-      "effect": "編成順が最も早い味方に効果適用\n-人差し指所属人格がいるなら、該当人格に優先して適用\n戦闘開始時、自分の操作スロットのうち最左端のスキルで指定した敵スロットを他の味方も指定したなら、該当スキルのダメージ量が自分以外の該当スロットをターゲティングした人員数1名につき、5%増加(最大15%,自分と味方が、どちらも基本攻撃スキルでメインターゲットにした場合に適用)",
-      "condition": "保有",
-      "requirements": {
-        "怠惰": 1,
-        "憂鬱": 1,
-        "傲慢": 1
-      }
-    },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%95%E3%82%A1%E3%82%A6%E3%82%B9%E3%83%88/%E4%BA%BA%E5%B7%AE%E3%81%97%E6%8C%87%E9%81%82%E8%A1%8C%E8%80%85%EF%BC%9A%E3%80%90%E7%B4%99%E7%89%87%E3%80%91"
-  },
-  {
-    "id": "11114",
-    "code": "1114",
-    "name": "LCAウアジェト先鋒三隊隊長",
-    "sinner": "ウーティス",
-    "date": "25/12/31",
+    "date": "26/10/01",
     "keywords": [
       "振動",
-      "沈潜"
+      "充電"
     ],
     "physical": [
-      "斬",
+      "打"
+    ],
+    "affinities": {
+      "怠惰": 1,
+      "傲慢": 3,
+      "嫉妬": 2
+    },
+    "s3": "怠惰",
+    "affiliations": [
+      "シーシュポス"
+    ],
+    "support": {
+      "name": "Formation Conservation",
+      "effect": "All allied [PersonalityCharge] take -2% damage this turn for every allied [PersonalityCharge] on the field at Combat Start (max -10%)",
+      "condition": "保有",
+      "requirements": {
+        "嫉妬": 2,
+        "怠惰": 2
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%89%E3%83%B3%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86/%E3%82%AA%E3%83%BC%E3%83%88%E3%82%AF%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AB%3A%3A%20%E3%83%AB%E3%83%BB%E3%83%8E%E3%83%AF%E3%83%BC%E3%83%AB%20%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC"
+  },
+  {
+    "id": "10917",
+    "code": "0917",
+    "name": "オートクチュール:: お直し室",
+    "sinner": "ロージャ",
+    "date": "26/09/24",
+    "keywords": [
+      "振動",
+      "充電"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "怠惰": 1,
+      "傲慢": 3,
+      "嫉妬": 2
+    },
+    "s3": "怠惰",
+    "affiliations": [
+      "シーシュポス"
+    ],
+    "support": {
+      "name": "First is Thanks-snipping",
+      "effect": "1 ally with the fastest Speed deals +10% damage using Slash Base Skills",
+      "condition": "保有",
+      "requirements": {
+        "怠惰": 4
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3/%E3%82%AA%E3%83%BC%E3%83%88%E3%82%AF%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AB%3A%3A%20%E3%81%8A%E7%9B%B4%E3%81%97%E5%AE%A4"
+  },
+  {
+    "id": "10816",
+    "code": "0816",
+    "name": "オートクチュール:: ル・ルージュ ブティーク",
+    "sinner": "イシュメール",
+    "date": "26/09/17",
+    "keywords": [
+      "出血",
+      "充電"
+    ],
+    "physical": [
       "貫"
     ],
     "affinities": {
-      "怠惰": 2,
-      "憂鬱": 1,
-      "傲慢": 3
+      "憤怒": 3,
+      "色欲": 1,
+      "嫉妬": 2
     },
-    "s3": "憂鬱",
+    "s3": "色欲",
     "affiliations": [
-      "LCAウアジェト"
+      "シーシュポス"
     ],
     "support": {
-      "name": "鷹の目",
-      "effect": "戦闘開始時、体力の比率が最も低い味方1名へ次のターンにて保護1を付与",
+      "name": "[Actrice Haute Couture du Rouge] - Robes",
+      "effect": "#1 and #2 Deployed allies heal +20% more HP from Passive, Skill, and Coin effects\n\nOn Lust A-Reson., #1 and #2 allies take -10% damage from Skills for the turn",
       "condition": "共鳴",
       "requirements": {
-        "憂鬱": 3
+        "色欲": 3
       }
     },
-    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9/LCA%E3%82%A6%E3%82%A2%E3%82%B8%E3%82%A7%E3%83%88%E5%85%88%E9%8B%92%E4%B8%89%E9%9A%8A%E9%9A%8A%E9%95%B7"
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%A1%E3%83%BC%E3%83%AB/%E3%82%AA%E3%83%BC%E3%83%88%E3%82%AF%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AB%3A%3A%20%E3%83%AB%E3%83%BB%E3%83%AB%E3%83%BC%E3%82%B8%E3%83%A5%20%E3%83%96%E3%83%86%E3%82%A3%E3%83%BC%E3%82%AF"
+  },
+  {
+    "id": "10416",
+    "code": "0416",
+    "name": "オートクチュール:: ル・ノワール シューズフロア",
+    "sinner": "良秀",
+    "date": "26/09/17",
+    "keywords": [
+      "振動",
+      "充電"
+    ],
+    "physical": [
+      "打"
+    ],
+    "affinities": {
+      "怠惰": 1,
+      "傲慢": 2,
+      "嫉妬": 3
+    },
+    "s3": "怠惰",
+    "affiliations": [
+      "シーシュポス"
+    ],
+    "support": {
+      "name": "Le Noir's Virtue and Worth",
+      "effect": "Among allies that have [Charge] or Unique [Charge], when 1 ally with the earliest Deployment Order triggers [VibrationExplosion] using its Base Skills, increase the Stagger Threshold raise by +12.5%",
+      "condition": "保有",
+      "requirements": {
+        "怠惰": 6
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E8%89%AF%E7%A7%80/%E3%82%AA%E3%83%BC%E3%83%88%E3%82%AF%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AB%3A%3A%20%E3%83%AB%E3%83%BB%E3%83%8E%E3%83%AF%E3%83%BC%E3%83%AB%20%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%BA%E3%83%95%E3%83%AD%E3%82%A2"
   },
   {
     "id": "10101",
@@ -1265,6 +576,75 @@ window.IDENTITY_DATA = [
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B5%E3%83%B3/%E9%BB%92%E7%8D%A3-%E5%8D%88%20%E7%AD%86%E9%A0%AD"
   },
   {
+    "id": "10115",
+    "code": "0115",
+    "name": "蜘蛛の巣 人差し指の親方",
+    "sinner": "イサン",
+    "date": "26/02/19",
+    "keywords": [
+      "沈潜",
+      "呼吸"
+    ],
+    "physical": [
+      "打",
+      "貫",
+      "斬"
+    ],
+    "affinities": {
+      "暴食": 3,
+      "憂鬱": 1,
+      "傲慢": 2
+    },
+    "s3": "憂鬱",
+    "affiliations": [
+      "人差し指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "神の加護",
+      "effect": "このターンに味方が敵に初めて使用した斬撃・貫通・打撃基本攻撃スキルのダメージ量がそれぞれ+5%\n- 効果が適用されたスキルが人差し指所属人格のスキルなら、代わりに+10%\n- 攻撃開始前を基準に適用される",
+      "condition": "保有",
+      "requirements": {
+        "暴食": 1,
+        "憂鬱": 1,
+        "傲慢": 1
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B5%E3%83%B3/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E4%BA%BA%E5%B7%AE%E3%81%97%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
+  },
+  {
+    "id": "10116",
+    "code": "0116",
+    "name": "LCE E.G.O:: 次元裂き",
+    "sinner": "イサン",
+    "date": "26/07/23",
+    "keywords": [
+      "破裂",
+      "充電"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "暴食": 2,
+      "傲慢": 3,
+      "嫉妬": 1
+    },
+    "s3": "嫉妬",
+    "affiliations": [
+      "LimbusCompany"
+    ],
+    "support": {
+      "name": "人ハ光ヨリモ迅ク逃ゲヨ",
+      "effect": "速度が最も高い味方1名が充電回数を得るか消耗するスキルを使用時、次のターンにクイック1を得る(1ターンにつき1回)",
+      "condition": "保有",
+      "requirements": {
+        "嫉妬": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B5%E3%83%B3/LCE%20E.G.O%3A%3A%20%E6%AC%A1%E5%85%83%E8%A3%82%E3%81%8D"
+  },
+  {
     "id": "10201",
     "code": "0201",
     "name": "LCB囚人",
@@ -1673,6 +1053,107 @@ window.IDENTITY_DATA = [
       }
     },
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%95%E3%82%A1%E3%82%A6%E3%82%B9%E3%83%88/%E6%9D%B1%E9%83%A8%E3%82%B7%E5%8D%94%E4%BC%9A3%E8%AA%B2"
+  },
+  {
+    "id": "10214",
+    "code": "0214",
+    "name": "人差し指遂行者：【紙片】",
+    "sinner": "ファウスト",
+    "date": "25/12/31",
+    "keywords": [
+      "沈潜",
+      "呼吸"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "怠惰": 3,
+      "憂鬱": 1,
+      "傲慢": 2
+    },
+    "s3": "憂鬱",
+    "affiliations": [
+      "人差し指"
+    ],
+    "support": {
+      "name": "指令の導くまま…。",
+      "effect": "編成順が最も早い味方に効果適用\n-人差し指所属人格がいるなら、該当人格に優先して適用\n戦闘開始時、自分の操作スロットのうち最左端のスキルで指定した敵スロットを他の味方も指定したなら、該当スキルのダメージ量が自分以外の該当スロットをターゲティングした人員数1名につき、5%増加(最大15%,自分と味方が、どちらも基本攻撃スキルでメインターゲットにした場合に適用)",
+      "condition": "保有",
+      "requirements": {
+        "怠惰": 1,
+        "憂鬱": 1,
+        "傲慢": 1
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%95%E3%82%A1%E3%82%A6%E3%82%B9%E3%83%88/%E4%BA%BA%E5%B7%AE%E3%81%97%E6%8C%87%E9%81%82%E8%A1%8C%E8%80%85%EF%BC%9A%E3%80%90%E7%B4%99%E7%89%87%E3%80%91"
+  },
+  {
+    "id": "10215",
+    "code": "0215",
+    "name": "蜘蛛の巣 薬指の子方",
+    "sinner": "ファウスト",
+    "date": "26/04/02",
+    "keywords": [
+      "出血",
+      "充電"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "色欲": 1,
+      "暴食": 3,
+      "嫉妬": 2
+    },
+    "s3": "色欲",
+    "affiliations": [
+      "薬指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "アイアンメイデン-棘",
+      "effect": "このターンに守備スキルを装着した味方が被ダメージ時、攻撃者へ出血4を付与(1ターンにつき2回)\n-既に出血があるなら、代わりに攻撃者の出血回数が2増加",
+      "condition": "保有",
+      "requirements": {
+        "色欲": 1,
+        "嫉妬": 2
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%95%E3%82%A1%E3%82%A6%E3%82%B9%E3%83%88/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%96%AC%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
+  },
+  {
+    "id": "10216",
+    "code": "0216",
+    "name": "夜明事務所フィクサー",
+    "sinner": "ファウスト",
+    "date": "26/07/09",
+    "keywords": [
+      "火傷",
+      "振動"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "憤怒": 1,
+      "怠惰": 2,
+      "傲慢": 3
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "夜明事務所"
+    ],
+    "support": {
+      "name": "孤独なフィクサー",
+      "effect": "戦闘開始時、生存した味方が待機人員を含めて1名なら、\n当該人格が攻撃レベル増加3,防御レベル増加3を得る",
+      "condition": "保有",
+      "requirements": {
+        "憤怒": 3,
+        "色欲": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%95%E3%82%A1%E3%82%A6%E3%82%B9%E3%83%88/%E5%A4%9C%E6%98%8E%E4%BA%8B%E5%8B%99%E6%89%80%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B5%E3%83%BC"
   },
   {
     "id": "10301",
@@ -2085,6 +1566,39 @@ window.IDENTITY_DATA = [
       }
     },
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%89%E3%83%B3%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86/%E9%BB%92%E7%8D%A3-%E6%9C%AA"
+  },
+  {
+    "id": "10314",
+    "code": "0314",
+    "name": "人差し指代行者- 開花E.G.O::代行",
+    "sinner": "ドンキホーテ",
+    "date": "26/01/08",
+    "keywords": [
+      "沈潜",
+      "呼吸"
+    ],
+    "physical": [
+      "打",
+      "斬"
+    ],
+    "affinities": {
+      "色欲": 3,
+      "憂鬱": 1,
+      "傲慢": 2
+    },
+    "s3": "憂鬱",
+    "affiliations": [
+      "人差し指"
+    ],
+    "support": {
+      "name": "これもまた魔法のピピ様のご恩であろう",
+      "effect": "戦闘開始時、精神力が最も低い味方1名の精神力を15回復\n-加算コインを使用する人格へ優先して適用\n-対象が人差し指所属なら効果が強化され、追加でダメージ量増加を1付与\n-侵蝕、パニック状態などの精神力を回復できない対象には適応されない",
+      "condition": "共鳴",
+      "requirements": {
+        "憂鬱": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%89%E3%83%B3%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86/%E4%BA%BA%E5%B7%AE%E3%81%97%E6%8C%87%E4%BB%A3%E8%A1%8C%E8%80%85-%20%E9%96%8B%E8%8A%B1E.G.O%3A%3A%E4%BB%A3%E8%A1%8C"
   },
   {
     "id": "10401",
@@ -2502,6 +2016,72 @@ window.IDENTITY_DATA = [
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E8%89%AF%E7%A7%80/%E9%B4%BB%E5%9C%92%E3%81%AE%E6%94%BE%E6%B5%AA%E6%AD%A6%E8%80%85"
   },
   {
+    "id": "10414",
+    "code": "0414",
+    "name": "ロボトミーE.G.O:: 残香・寂しさ",
+    "sinner": "良秀",
+    "date": "26/03/05",
+    "keywords": [
+      "振動",
+      "沈潜"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "怠惰": 3,
+      "憂鬱": 1,
+      "嫉妬": 2
+    },
+    "s3": "憂鬱",
+    "affiliations": [
+      "旧L社"
+    ],
+    "support": {
+      "name": "春の誕生",
+      "effect": "速度が最も高い味方1名が沈潜威力・回数、または特殊沈潜を付与するスキルで敵に的中時、振動2を付与して振動爆発。対象の振動回数が1減少(1ターンにつき1回)",
+      "condition": "共鳴",
+      "requirements": {
+        "怠惰": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E8%89%AF%E7%A7%80/%E3%83%AD%E3%83%9C%E3%83%88%E3%83%9F%E3%83%BCE.G.O%3A%3A%20%E6%AE%8B%E9%A6%99%E3%83%BB%E5%AF%82%E3%81%97%E3%81%95"
+  },
+  {
+    "id": "10415",
+    "code": "0415",
+    "name": "蜘蛛の巣の刀",
+    "sinner": "良秀",
+    "date": "26/05/14",
+    "keywords": [
+      "火傷",
+      "出血",
+      "呼吸"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "憤怒": 1,
+      "色欲": 3,
+      "傲慢": 2
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "小指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "師事",
+      "effect": "編成順が最も早い味方が基本スキル使用時、呼吸威力2を得る(1ターンにつき3回)",
+      "condition": "共鳴",
+      "requirements": {
+        "傲慢": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E8%89%AF%E7%A7%80/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%E3%81%AE%E5%88%80"
+  },
+  {
     "id": "10501",
     "code": "0501",
     "name": "LCB囚人",
@@ -2917,6 +2497,70 @@ window.IDENTITY_DATA = [
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%A0%E3%83%AB%E3%82%BD%E3%83%BC/%E3%83%A9%E3%83%BB%E3%83%9E%E3%83%B3%E3%83%81%E3%83%A3%E3%83%A9%E3%83%B3%E3%83%89%E3%81%AE%E7%8E%8B%E5%AD%90"
   },
   {
+    "id": "10514",
+    "code": "0514",
+    "name": "ロボトミーE.G.O:: ホーネット【変調】",
+    "sinner": "ムルソー",
+    "date": "26/03/05",
+    "keywords": [
+      "火傷",
+      "出血"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "憤怒": 3,
+      "色欲": 3
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "旧L社"
+    ],
+    "support": {
+      "name": "働き蜂",
+      "effect": "味方の貫通属性基本攻撃スキル終了時、その攻撃で与えた体力ダメージ量の10%だけ体力を回復(戦闘ごとに最大2回発動可能)\n-このターンの間、スキルスロットに装着した全ての基本攻撃スキルが貫通属性なら、ターン終了時に全味方の精神力を10回復",
+      "condition": "共鳴",
+      "requirements": {
+        "憤怒": 4
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%A0%E3%83%AB%E3%82%BD%E3%83%BC/%E3%83%AD%E3%83%9C%E3%83%88%E3%83%9F%E3%83%BCE.G.O%3A%3A%20%E3%83%9B%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%80%90%E5%A4%89%E8%AA%BF%E3%80%91"
+  },
+  {
+    "id": "10515",
+    "code": "0515",
+    "name": "薬指野獣派 スチューデント",
+    "sinner": "ムルソー",
+    "date": "26/04/16",
+    "keywords": [
+      "出血",
+      "沈潜"
+    ],
+    "physical": [
+      "打"
+    ],
+    "affinities": {
+      "憤怒": 3,
+      "色欲": 1,
+      "傲慢": 2
+    },
+    "s3": "色欲",
+    "affiliations": [
+      "薬指"
+    ],
+    "support": {
+      "name": "重ね描いた傷跡",
+      "effect": "速度が最も高い味方1名が攻撃的中時、対象のマイナス効果2種につき防御レベル減少1を付与(1ターンにつき最大1回、最大3)",
+      "condition": "保有",
+      "requirements": {
+        "色欲": 2,
+        "傲慢": 1
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%A0%E3%83%AB%E3%82%BD%E3%83%BC/%E8%96%AC%E6%8C%87%E9%87%8E%E7%8D%A3%E6%B4%BE%20%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%87%E3%83%B3%E3%83%88"
+  },
+  {
     "id": "10601",
     "code": "0601",
     "name": "LCB囚人",
@@ -3329,6 +2973,71 @@ window.IDENTITY_DATA = [
       }
     },
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%9B%E3%83%B3%E3%83%AB/%E9%B4%BB%E5%9C%92%E3%81%AE%E5%90%9B%E4%B8%BB"
+  },
+  {
+    "id": "10614",
+    "code": "0614",
+    "name": "蜘蛛の巣 薬指の親方",
+    "sinner": "ホンル",
+    "date": "26/04/02",
+    "keywords": [
+      "出血",
+      "充電"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "色欲": 1,
+      "傲慢": 3,
+      "嫉妬": 2
+    },
+    "s3": "色欲",
+    "affiliations": [
+      "薬指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "走り回る観客は椅子に座って鑑賞なさってください",
+      "effect": "ターン終了時、最も速度が高い敵1名に、次のターンにて攻撃レベル減少2を付与して出血回数が1増加(集中戦闘の場合は部位で判定)",
+      "condition": "共鳴",
+      "requirements": {
+        "色欲": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%9B%E3%83%B3%E3%83%AB/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%96%AC%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
+  },
+  {
+    "id": "10615",
+    "code": "0615",
+    "name": "S社チュノックン",
+    "sinner": "ホンル",
+    "date": "26/06/11",
+    "keywords": [
+      "出血",
+      "呼吸"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "色欲": 2,
+      "暴食": 3,
+      "傲慢": 1
+    },
+    "s3": "傲慢",
+    "affiliations": [
+      "S社"
+    ],
+    "support": {
+      "name": "怒りに駆られた追撃",
+      "effect": "編成順が最も早い味方1名が、束縛の付与された敵を攻撃するとき、ダメージ量+10%",
+      "condition": "保有",
+      "requirements": {
+        "傲慢": 5
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%9B%E3%83%B3%E3%83%AB/S%E7%A4%BE%E3%83%81%E3%83%A5%E3%83%8E%E3%83%83%E3%82%AF%E3%83%B3"
   },
   {
     "id": "10701",
@@ -3778,6 +3487,70 @@ window.IDENTITY_DATA = [
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%92%E3%83%BC%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%95/%E9%BB%92%E7%8D%A3-%E9%85%89%20%E7%AD%86%E9%A0%AD"
   },
   {
+    "id": "10715",
+    "code": "0715",
+    "name": "中指末兄",
+    "sinner": "ヒースクリフ",
+    "date": "26/04/30",
+    "keywords": [
+      "火傷",
+      "出血"
+    ],
+    "physical": [
+      "打"
+    ],
+    "affinities": {
+      "憤怒": 3,
+      "嫉妬": 3
+    },
+    "s3": "嫉妬",
+    "affiliations": [
+      "中指"
+    ],
+    "support": {
+      "name": "義理の鎖",
+      "effect": "戦闘中、中指所属の味方人格が死亡したなら、このターンと次のターンに全ての中指所属人格が攻撃威力増加1を得る(1ターンにつき1回)",
+      "condition": "保有",
+      "requirements": {
+        "嫉妬": 4
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%92%E3%83%BC%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%95/%E4%B8%AD%E6%8C%87%E6%9C%AB%E5%85%84"
+  },
+  {
+    "id": "10716",
+    "code": "0716",
+    "name": "蜘蛛の巣 親指の子方",
+    "sinner": "ヒースクリフ",
+    "date": "26/06/25",
+    "keywords": [
+      "火傷",
+      "振動"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "憤怒": 1,
+      "色欲": 3,
+      "怠惰": 2
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "親指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "一対一の決闘なら…。",
+      "effect": "速度が最も高い味方1名が基本攻撃スキルでマッチ勝利時、\n対象の敵の火傷回数が1増加(1ターンにつき1回)\n-親指人格に優先して適用\n-親指人格なら効果が強化され、代わりに対象の火傷回数と振動回数が1増加\n-戦闘開始時、敵が1名のみなら(幻想体の場合は本体を基準とする)、このパッシブ効果で付与する火傷回数と振動回数+1",
+      "condition": "共鳴",
+      "requirements": {
+        "憤怒": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%92%E3%83%BC%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%95/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%A6%AA%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
+  },
+  {
     "id": "10801",
     "code": "0801",
     "name": "LCB囚人",
@@ -4193,6 +3966,71 @@ window.IDENTITY_DATA = [
       }
     },
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%A1%E3%83%BC%E3%83%AB/%E5%AE%9A%E4%BA%8B%E5%8B%99%E6%89%80%E4%BB%A3%E8%A1%A8"
+  },
+  {
+    "id": "10814",
+    "code": "0814",
+    "name": "蜘蛛の巣 中指の子方",
+    "sinner": "イシュメール",
+    "date": "26/01/22",
+    "keywords": [
+      "火傷",
+      "出血"
+    ],
+    "physical": [
+      "打"
+    ],
+    "affinities": {
+      "憤怒": 2,
+      "色欲": 3,
+      "嫉妬": 1
+    },
+    "s3": "嫉妬",
+    "affiliations": [
+      "中指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "あなた…フィクサー的なの好きなんです？",
+      "effect": "編成順1番の基本攻撃スキルのマッチ威力+1(1ターンにつき1回)\n嫉妬共鳴が完全共鳴なら、編成順1番の基本スキルダメージ量+10%",
+      "condition": "共鳴",
+      "requirements": {
+        "嫉妬": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%A1%E3%83%BC%E3%83%AB/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E4%B8%AD%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
+  },
+  {
+    "id": "10815",
+    "code": "0815",
+    "name": "LCD現場推理チーム",
+    "sinner": "イシュメール",
+    "date": "26/06/11",
+    "keywords": [
+      "出血",
+      "呼吸"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "憤怒": 3,
+      "憂鬱": 2,
+      "傲慢": 1
+    },
+    "s3": "傲慢",
+    "affiliations": [
+      "LimbusCompany"
+    ],
+    "support": {
+      "name": "斬り、殺すのみ",
+      "effect": "速度が最も高い味方1名の斬撃スキルの与ダメージ量+10%\n-その味方にクイックがあるなら、代わりに斬撃スキルダメージ量+15%",
+      "condition": "共鳴",
+      "requirements": {
+        "傲慢": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%A1%E3%83%BC%E3%83%AB/LCD%E7%8F%BE%E5%A0%B4%E6%8E%A8%E7%90%86%E3%83%81%E3%83%BC%E3%83%A0"
   },
   {
     "id": "10901",
@@ -4637,6 +4475,71 @@ window.IDENTITY_DATA = [
       }
     },
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3/R%E7%A4%BE%E7%AC%AC4%E7%BE%A4%E3%83%88%E3%83%8A%E3%82%AB%E3%82%A4%E3%83%81%E3%83%BC%E3%83%A0"
+  },
+  {
+    "id": "10915",
+    "code": "0915",
+    "name": "薬指野獣派 ドーセント",
+    "sinner": "ロージャ",
+    "date": "26/04/16",
+    "keywords": [
+      "出血",
+      "沈潜"
+    ],
+    "physical": [
+      "打"
+    ],
+    "affinities": {
+      "色欲": 1,
+      "憂鬱": 3,
+      "嫉妬": 2
+    },
+    "s3": "色欲",
+    "affiliations": [
+      "薬指"
+    ],
+    "support": {
+      "name": "壊れないようにそーっと…",
+      "effect": "編成順が最も早い人格へ下記の効果を適用\n-色欲共鳴が奇数なら、出血威力付与値+1\n-色欲共鳴が偶数なら沈潜威力付与量+1\n-当該人格が薬指所属人格なら、戦闘開始時に攻撃レベル増加1または防御レベル増加1を得る",
+      "condition": "共鳴",
+      "requirements": {
+        "色欲": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3/%E8%96%AC%E6%8C%87%E9%87%8E%E7%8D%A3%E6%B4%BE%20%E3%83%89%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88"
+  },
+  {
+    "id": "10916",
+    "code": "0916",
+    "name": "蜘蛛の巣 親指の親方",
+    "sinner": "ロージャ",
+    "date": "26/06/25",
+    "keywords": [
+      "火傷",
+      "振動"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "憤怒": 1,
+      "怠惰": 2,
+      "傲慢": 3
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "親指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "弱っちい連中め",
+      "effect": "速度が最も高い味方1名が敵へ振動爆発発動時、次のターンに攻撃レベル増加2を得る(1ターンにつき1回)\n-親指所属の場合、追加でクイック1を得る(1ターンにつき1回)",
+      "condition": "共鳴",
+      "requirements": {
+        "憤怒": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E8%A6%AA%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
   },
   {
     "id": "11001",
@@ -5087,6 +4990,39 @@ window.IDENTITY_DATA = [
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AC%E3%82%A2/%E9%BB%92%E7%8D%A3-%E9%85%89"
   },
   {
+    "id": "11015",
+    "code": "1015",
+    "name": "蜘蛛の巣 小指の子方",
+    "sinner": "シンクレア",
+    "date": "26/02/05",
+    "keywords": [
+      "出血",
+      "呼吸"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "憤怒": 1,
+      "憂鬱": 3,
+      "傲慢": 2
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "蜘蛛の巣",
+      "小指"
+    ],
+    "support": {
+      "name": "静念",
+      "effect": "速度が最も高い味方1名が守備スキルを装着している場合、戦闘開始時に精神力を5回復、バリア5を得る",
+      "condition": "共鳴",
+      "requirements": {
+        "傲慢": 2
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AC%E3%82%A2/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E5%B0%8F%E6%8C%87%E3%81%AE%E5%AD%90%E6%96%B9"
+  },
+  {
     "id": "11101",
     "code": "1101",
     "name": "LCB囚人",
@@ -5495,6 +5431,71 @@ window.IDENTITY_DATA = [
       }
     },
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9/T%E7%A4%BE3%E7%B4%9A%E5%BC%B7%E5%88%B6%E5%BE%B4%E5%8F%8E%E8%81%B7%E8%81%B7%E5%93%A1"
+  },
+  {
+    "id": "11114",
+    "code": "1114",
+    "name": "LCAウアジェト先鋒三隊隊長",
+    "sinner": "ウーティス",
+    "date": "25/12/31",
+    "keywords": [
+      "振動",
+      "沈潜"
+    ],
+    "physical": [
+      "斬",
+      "貫"
+    ],
+    "affinities": {
+      "怠惰": 2,
+      "憂鬱": 1,
+      "傲慢": 3
+    },
+    "s3": "憂鬱",
+    "affiliations": [
+      "LCAウアジェト"
+    ],
+    "support": {
+      "name": "鷹の目",
+      "effect": "戦闘開始時、体力の比率が最も低い味方1名へ次のターンにて保護1を付与",
+      "condition": "共鳴",
+      "requirements": {
+        "憂鬱": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9/LCA%E3%82%A6%E3%82%A2%E3%82%B8%E3%82%A7%E3%83%88%E5%85%88%E9%8B%92%E4%B8%89%E9%9A%8A%E9%9A%8A%E9%95%B7"
+  },
+  {
+    "id": "11115",
+    "code": "1115",
+    "name": "蜘蛛の巣 中指の親方",
+    "sinner": "ウーティス",
+    "date": "26/05/28",
+    "keywords": [
+      "火傷",
+      "出血"
+    ],
+    "physical": [
+      "打"
+    ],
+    "affinities": {
+      "色欲": 3,
+      "嫉妬": 3
+    },
+    "s3": "嫉妬",
+    "affiliations": [
+      "中指",
+      "蜘蛛の巣"
+    ],
+    "support": {
+      "name": "誰が家族に手を出しやがった",
+      "effect": "戦闘開始時、反撃を装着した味方にダメージ量増加1,保護1を付与(戦闘ごとに最大2回発動可能、マッチ可能反撃を除く)\n-効果を受ける対象が中指所属なら、代わりに嫉妬ダメージ量増加2,保護2を付与",
+      "condition": "共鳴",
+      "requirements": {
+        "嫉妬": 4
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9/%E8%9C%98%E8%9B%9B%E3%81%AE%E5%B7%A3%20%E4%B8%AD%E6%8C%87%E3%81%AE%E8%A6%AA%E6%96%B9"
   },
   {
     "id": "11201",
@@ -5908,5 +5909,101 @@ window.IDENTITY_DATA = [
       }
     },
     "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B0%E3%83%AC%E3%82%B4%E3%83%BC%E3%83%AB/%E5%A4%9C%E3%81%AE%E9%8C%90%E3%82%AB%E3%83%94%E3%82%BF%E3%83%BC%E3%83%8E"
+  },
+  {
+    "id": "11214",
+    "code": "1214",
+    "name": "ロボトミーE.G.O::ランプ",
+    "sinner": "グレゴール",
+    "date": "26/02/05",
+    "keywords": [
+      "火傷",
+      "沈潜"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "憤怒": 3,
+      "憂鬱": 2,
+      "傲慢": 1
+    },
+    "s3": "傲慢",
+    "affiliations": [
+      "LimbusCompany"
+    ],
+    "support": {
+      "name": "まだ救うべき命が残っていたのか",
+      "effect": "ターン終了時、マイナス効果を保有した味方のうち編成順が最も早い対象に下記の効果を適用\n-次のターンに最左端スロットが挑発値4を得る\n-次のターンに打撃ダメージ量増加1を得る",
+      "condition": "共鳴",
+      "requirements": {
+        "憤怒": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B0%E3%83%AC%E3%82%B4%E3%83%BC%E3%83%AB/%E3%83%AD%E3%83%9C%E3%83%88%E3%83%9F%E3%83%BCE.G.O%3A%3A%E3%83%A9%E3%83%B3%E3%83%97"
+  },
+  {
+    "id": "11215",
+    "code": "1215",
+    "name": "LCE E.G.O::AEDD",
+    "sinner": "グレゴール",
+    "date": "26/03/19",
+    "keywords": [
+      "破裂",
+      "充電"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "暴食": 3,
+      "憂鬱": 2,
+      "嫉妬": 1
+    },
+    "s3": "嫉妬",
+    "affiliations": [
+      "LimbusCompany"
+    ],
+    "support": {
+      "name": "除細動",
+      "effect": "編成順が最も早い味方2/3名がターン終了時、このターンにそれぞれの攻撃スキルを使用して消耗した充電回数と、消耗した特殊充電の合計だけそれぞれの体力を回復(最大10)",
+      "condition": "共鳴",
+      "requirements": {
+        "嫉妬": 4
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B0%E3%83%AC%E3%82%B4%E3%83%BC%E3%83%AB/LCE%20E.G.O%3A%3AAEDD"
+  },
+  {
+    "id": "11216",
+    "code": "1216",
+    "name": "夜明事務所代表",
+    "sinner": "グレゴール",
+    "date": "26/07/09",
+    "keywords": [
+      "火傷",
+      "振動"
+    ],
+    "physical": [
+      "斬"
+    ],
+    "affinities": {
+      "憤怒": 1,
+      "怠惰": 3,
+      "傲慢": 2
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "夜明事務所"
+    ],
+    "support": {
+      "name": "スティグマ工房の義体",
+      "effect": "現体力が最も多い味方1名が、火傷を保有する敵へ攻撃的中時、振動2を付与(1ターンに1回)\n-対象の火傷が10以上なら、最終コイン的中時に振動爆発。対象の振動回数が1減少(1ターンにつき1回)\n本来は刃物だけを作るスティグマ工房が、夜明頃のフィクサーのために特別に制作してくれた義体。スティグマ工房の特性を理解していない者が使用すれば、この熱を噴き出す腕は装着者の身体までもを溶かすだろう。",
+      "condition": "共鳴",
+      "requirements": {
+        "憤怒": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B0%E3%83%AC%E3%82%B4%E3%83%BC%E3%83%AB/%E5%A4%9C%E6%98%8E%E4%BA%8B%E5%8B%99%E6%89%80%E4%BB%A3%E8%A1%A8"
   }
 ];
