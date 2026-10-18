@@ -1,5 +1,37 @@
 window.IDENTITY_DATA = [
   {
+    "id": "11016",
+    "code": "1016",
+    "name": "オートクチュール:: ル・ルージュ 赤き神",
+    "sinner": "シンクレア",
+    "date": "26/10/15",
+    "keywords": [
+      "出血",
+      "充電"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "憤怒": 2,
+      "色欲": 1,
+      "暴食": 3
+    },
+    "s3": "色欲",
+    "affiliations": [
+      "シーシュポス"
+    ],
+    "support": {
+      "name": "Voracious Overindulgence",
+      "effect": "Combat Start: Apply 2 [AttackUp] to the ally with the lowest HP\nThe said ally heals 5% HP at Attack Skill End (min 1, once per turn)",
+      "condition": "共鳴",
+      "requirements": {
+        "色欲": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AC%E3%82%A2/%E3%82%AA%E3%83%BC%E3%83%88%E3%82%AF%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AB%3A%3A%20%E3%83%AB%E3%83%BB%E3%83%AB%E3%83%BC%E3%82%B8%E3%83%A5%20%E8%B5%A4%E3%81%8D%E7%A5%9E"
+  },
+  {
     "id": "10315",
     "code": "0315",
     "name": "オートクチュール:: ル・ノワール ブランドマネージャー",
