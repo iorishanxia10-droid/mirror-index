@@ -1,5 +1,69 @@
 window.IDENTITY_DATA = [
   {
+    "id": "10717",
+    "code": "0717",
+    "name": "オートクチュール:: ル・ルージュ 裁縫の王",
+    "sinner": "ヒースクリフ",
+    "date": "26/10/29",
+    "keywords": [
+      "出血",
+      "充電"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "憤怒": 1,
+      "色欲": 2,
+      "嫉妬": 3
+    },
+    "s3": "憤怒",
+    "affiliations": [
+      "シーシュポス"
+    ],
+    "support": {
+      "name": "20 stitches an inch, minimum!!!",
+      "effect": "1 ally with the fastest Speed: On Hit using Base Attack Skills, inflict 2 [Laceration] (once per turn)\n- If the said ally is a \"Le Rouge\" Identity, additionally inflict 1 [NiddlePinAlly]",
+      "condition": "共鳴",
+      "requirements": {
+        "色欲": 2
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%92%E3%83%BC%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%95/%E3%82%AA%E3%83%BC%E3%83%88%E3%82%AF%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AB%3A%3A%20%E3%83%AB%E3%83%BB%E3%83%AB%E3%83%BC%E3%82%B8%E3%83%A5%20%E8%A3%81%E7%B8%AB%E3%81%AE%E7%8E%8B"
+  },
+  {
+    "id": "10617",
+    "code": "0617",
+    "name": "オートクチュール:: ル・ノワール 3F放送室",
+    "sinner": "ホンル",
+    "date": "26/10/29",
+    "keywords": [
+      "振動",
+      "充電"
+    ],
+    "physical": [
+      "打"
+    ],
+    "affinities": {
+      "怠惰": 1,
+      "憂鬱": 3,
+      "嫉妬": 2
+    },
+    "s3": "怠惰",
+    "affiliations": [
+      "シーシュポス"
+    ],
+    "support": {
+      "name": "Tuck Them Under a Blanket",
+      "effect": "The first Identity to use an [SupportProtect] exclusive Skill in a turn gains 1 [Protection] on said Skill Use (once per turn)",
+      "condition": "共鳴",
+      "requirements": {
+        "怠惰": 3
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%9B%E3%83%B3%E3%83%AB/%E3%82%AA%E3%83%BC%E3%83%88%E3%82%AF%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AB%3A%3A%20%E3%83%AB%E3%83%BB%E3%83%8E%E3%83%AF%E3%83%BC%E3%83%AB%203F%E6%94%BE%E9%80%81%E5%AE%A4"
+  },
+  {
     "id": "11016",
     "code": "1016",
     "name": "オートクチュール:: ル・ルージュ 赤き神",
