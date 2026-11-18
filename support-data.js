@@ -1,5 +1,101 @@
 window.IDENTITY_DATA = [
   {
+    "id": "11116",
+    "code": "1116",
+    "name": "楔事務所代表",
+    "sinner": "ウーティス",
+    "date": "26/11/12",
+    "keywords": [
+      "振動",
+      "呼吸"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "色欲": 3,
+      "怠惰": 2,
+      "傲慢": 1
+    },
+    "s3": "傲慢",
+    "affiliations": [
+      "楔事務所"
+    ],
+    "support": {
+      "name": "Acceleration Lance",
+      "effect": "All allies' Pierce Skills deal +5% damage",
+      "condition": "共鳴",
+      "requirements": {
+        "傲慢": 4
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9/%E6%A5%94%E4%BA%8B%E5%8B%99%E6%89%80%E4%BB%A3%E8%A1%A8"
+  },
+  {
+    "id": "11017",
+    "code": "1017",
+    "name": "楔事務所フィクサー",
+    "sinner": "シンクレア",
+    "date": "26/11/12",
+    "keywords": [
+      "振動",
+      "呼吸"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "怠惰": 2,
+      "暴食": 3,
+      "傲慢": 1
+    },
+    "s3": "傲慢",
+    "affiliations": [
+      "楔事務所"
+    ],
+    "support": {
+      "name": "Keeping Pace",
+      "effect": "Turn End: Apply 1 [Agility] next turn on the allied Identity with the slowest Speed (prioritize \"Fixer\" Identities)\n- If the said Identity is a \"Fixer\", apply 1 [AttackUp] and 1 [Agility] next turn instead",
+      "condition": "保有",
+      "requirements": {
+        "傲慢": 4
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AC%E3%82%A2/%E6%A5%94%E4%BA%8B%E5%8B%99%E6%89%80%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B5%E3%83%BC"
+  },
+  {
+    "id": "10316",
+    "code": "0316",
+    "name": "楔事務所フィクサー",
+    "sinner": "ドンキホーテ",
+    "date": "26/11/12",
+    "keywords": [
+      "振動",
+      "呼吸"
+    ],
+    "physical": [
+      "貫"
+    ],
+    "affinities": {
+      "怠惰": 3,
+      "暴食": 2,
+      "傲慢": 1
+    },
+    "s3": "傲慢",
+    "affiliations": [
+      "楔事務所"
+    ],
+    "support": {
+      "name": "Reconnaissance",
+      "effect": "When 1 ally with the fastest Speed uses a Skill to Clash, inflict 3 [Vibration] Potency on the target of the Clash (once per turn; for Focused Encounters, the Part)",
+      "condition": "共鳴",
+      "requirements": {
+        "怠惰": 2
+      }
+    },
+    "wiki": "https://wikiwiki.jp/lcbwiki/%E4%BA%BA%E6%A0%BC/%E3%83%89%E3%83%B3%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86/%E6%A5%94%E4%BA%8B%E5%8B%99%E6%89%80%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B5%E3%83%BC"
+  },
+  {
     "id": "10717",
     "code": "0717",
     "name": "オートクチュール:: ル・ルージュ 裁縫の王",
