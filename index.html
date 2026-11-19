@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261119-1">
+  <link rel="stylesheet" href="styles.css?v=20261119-2">
 </head>
 <body>
   <header class="topbar">
@@ -196,7 +196,9 @@
           <fieldset class="star-mode"><legend>難易度</legend>
             <label><input type="radio" name="starMode" id="starNormal" checked> ノーマル</label>
             <label><input type="radio" name="starMode" id="starHard"> ハード</label>
+            <label><input type="radio" name="starMode" id="starSwitch"> 途中からハード</label>
           </fieldset>
+          <label id="starHardFromLabel" hidden><span>ハードに切り替えた階層</span><select id="starHardFrom"><option value="2">2層から</option><option value="3">3層から</option><option value="4">4層から</option><option value="5">5層から</option></select></label>
           <label><span>クリアした階層</span><select id="starFloor"></select></label>
           <label><span>編成ボーナス（入場した12人格の電池マークの合計、0〜60。レンタル編成は60）</span><input id="starBonus" type="number" inputmode="numeric" min="0" max="60" value="0"></label>
           <label><span>踏んだ鏡屈折鉄道パックの数（ハード）</span><input id="starRailway" type="number" inputmode="numeric" min="0" value="0"></label>
@@ -212,7 +214,7 @@
         </div>
         <p class="star-total"><strong id="starTotal">0</strong><span id="starNet"></span></p>
         <ul id="starBreakdown" class="star-breakdown"></ul>
-        <p class="gift-recommendation-note">計算式は攻略 Wiki「シーシュポスの鏡」より: 基本60 + 編成ボーナス + 戦闘報酬カード + 制約P×15 + (探査点数 + 鉄道パック×5) × 倍率。倍率は 1 + 編成ボーナス×0.017（最大2）。端数の扱いで実際と1ずれることがあります。</p>
+        <p class="gift-recommendation-note">計算式は攻略 Wiki「シーシュポスの鏡」より: 基本60 + 編成ボーナス + 戦闘報酬カード + 制約P×15 + (探査点数 + 鉄道パック×5) × 倍率。倍率は 1 + 編成ボーナス×0.017（最大2）。端数の扱いで実際と1ずれることがあります。途中からハードの場合は、ハードでクリアした階層の分だけハード点を足す推定です（Wiki に明記なし）。</p>
       </section>
     </section>
 
@@ -245,12 +247,12 @@
     <p id="giftPreviewEffect" class="gift-preview-effect"></p>
   </dialog>
 
-  <script src="data.js?v=20261119-1"></script>
-  <script src="gift-overrides.js?v=20261119-1"></script>
-  <script src="support-data.js?v=20261119-1"></script>
-  <script src="support-ranking.js?v=20261119-1"></script>
-  <script src="app.js?v=20261119-1"></script>
-  <script src="starlight.js?v=20261119-1"></script>
-  <script src="support.js?v=20261119-1"></script>
+  <script src="data.js?v=20261119-2"></script>
+  <script src="gift-overrides.js?v=20261119-2"></script>
+  <script src="support-data.js?v=20261119-2"></script>
+  <script src="support-ranking.js?v=20261119-2"></script>
+  <script src="app.js?v=20261119-2"></script>
+  <script src="starlight.js?v=20261119-2"></script>
+  <script src="support.js?v=20261119-2"></script>
 </body>
 </html>

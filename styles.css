@@ -274,10 +274,11 @@ footer { display: flex; justify-content: space-between; gap: 2rem; padding: 1.4r
 }
 
 .star-form input[type="number"] { width: 100%; padding: .62rem .75rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink); }
-.star-mode { display: flex; gap: 1.2rem; border: 0; padding: 0; margin: 0; color: var(--ink); }
+.star-mode { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; border: 0; padding: 0; margin: 0; color: var(--ink); }
 .star-mode legend { color: var(--muted); font-size: .72rem; margin-bottom: .4rem; }
 .star-total { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin: 1rem 0 1.4rem; }
 .star-total strong { font-size: 4rem; line-height: 1; }
 .star-total span { color: var(--muted); }
 .star-breakdown { list-style: none; padding: 0; margin: 0 0 1.4rem; border-top: 1px solid var(--line); }
 .star-breakdown li { display: flex; justify-content: space-between; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.star-mode label { display: flex; align-items: center; gap: .35rem; color: var(--ink); font-size: .85rem; }

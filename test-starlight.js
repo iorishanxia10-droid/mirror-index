@@ -18,3 +18,8 @@ if (calc({ hard: true, floor: 15, bonus: 0, railway: 1 }).total !== 325) throw n
 if (calc({ hard: true, floor: 15, bonus: 0, constraint: 24 }).total !== 680) throw new Error("制約ボーナス");
 if (calc({ hard: true, floor: 5, bonus: 0, constraint: 24 }).total !== 120) throw new Error("10層以下で制約が加算されている");
 console.log("OK: starlight");
+// 途中切り替え: 3層からハードで5層クリア = 基礎15 + ハード(9+12+15)
+if (context.window.STARLIGHT.explorationScore(3, 5) !== 51) throw new Error("途中切り替えの探査点数");
+if (calc({ hardFrom: 3, floor: 5, bonus: 0 }).total !== 111) throw new Error("途中切り替えの合計");
+if (calc({ hardFrom: 1, floor: 5, bonus: 0 }).total !== calc({ hard: true, floor: 5, bonus: 0 }).total) throw new Error("hardFrom=1 とハードが不一致");
+console.log("OK: starlight switch");
