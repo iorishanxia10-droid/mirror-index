@@ -84,7 +84,7 @@ h1 em { color: var(--accent); font-style: normal; }
 .hero-stat strong { font: 700 4.2rem/1 "Yu Mincho", serif; }
 .hero-stat > span:last-child { color: var(--muted); font-size: .78rem; }
 
-.tool-tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--strong-line); }
+.tool-tabs { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--strong-line); }
 .tool-tab { min-height: 54px; border: 0; border-right: 1px solid var(--line); color: var(--muted); background: var(--surface); cursor: pointer; font: 700 .78rem Consolas, monospace; letter-spacing: .08em; }
 .tool-tab:last-child { border-right: 0; }
 .tool-tab.active { color: var(--ink); background: var(--paper); box-shadow: inset 0 -4px 0 var(--accent); }
@@ -272,3 +272,12 @@ footer { display: flex; justify-content: space-between; gap: 2rem; padding: 1.4r
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+.star-form input[type="number"] { width: 100%; padding: .62rem .75rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink); }
+.star-mode { display: flex; gap: 1.2rem; border: 0; padding: 0; margin: 0; color: var(--ink); }
+.star-mode legend { color: var(--muted); font-size: .72rem; margin-bottom: .4rem; }
+.star-total { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin: 1rem 0 1.4rem; }
+.star-total strong { font-size: 4rem; line-height: 1; }
+.star-total span { color: var(--muted); }
+.star-breakdown { list-style: none; padding: 0; margin: 0 0 1.4rem; border-top: 1px solid var(--line); }
+.star-breakdown li { display: flex; justify-content: space-between; padding: .6rem 0; border-bottom: 1px solid var(--line); }

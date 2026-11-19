@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261007-1">
+  <link rel="stylesheet" href="styles.css?v=20261119-1">
 </head>
 <body>
   <header class="topbar">
@@ -47,6 +47,7 @@
     <nav class="tool-tabs" aria-label="ツール切り替え">
       <button class="tool-tab active" type="button" data-tool="gift" aria-pressed="true">E.G.Oギフト</button>
       <button class="tool-tab" type="button" data-tool="support" aria-pressed="false">単騎サポート</button>
+      <button class="tool-tab" type="button" data-tool="star" aria-pressed="false">星明かり</button>
     </nav>
 
     <section id="giftTool" class="workspace" aria-label="E.G.Oギフト選択ツール">
@@ -185,6 +186,36 @@
       </section>
     </section>
 
+    <section id="starTool" class="support-tool" aria-label="星明かり獲得量計算" hidden>
+      <aside class="support-picker">
+        <div class="section-head">
+          <div><span class="step">✦</span><h2>クリア条件を入れる</h2></div>
+        </div>
+        <p class="support-intro">最終クリア時（報酬受け取り時）に獲得できる星明かりを計算します。</p>
+        <div class="solo-selects star-form">
+          <fieldset class="star-mode"><legend>難易度</legend>
+            <label><input type="radio" name="starMode" id="starNormal" checked> ノーマル</label>
+            <label><input type="radio" name="starMode" id="starHard"> ハード</label>
+          </fieldset>
+          <label><span>クリアした階層</span><select id="starFloor"></select></label>
+          <label><span>編成ボーナス（入場した12人格の電池マークの合計、0〜60。レンタル編成は60）</span><input id="starBonus" type="number" inputmode="numeric" min="0" max="60" value="0"></label>
+          <label><span>踏んだ鏡屈折鉄道パックの数（ハード）</span><input id="starRailway" type="number" inputmode="numeric" min="0" value="0"></label>
+          <label><span>制約ポイントの合計（EXTREME 11層以降）</span><input id="starConstraint" type="number" inputmode="numeric" min="0" value="0"></label>
+          <label><span>戦闘報酬カードの星明かり合計</span><input id="starCards" type="number" inputmode="numeric" min="0" value="0"></label>
+          <label><span>使った星明かり（加護・観測・願いごと、任意）</span><input id="starSpent" type="number" inputmode="numeric" min="0" value="0"></label>
+        </div>
+      </aside>
+
+      <section class="support-results" aria-labelledby="starTitle">
+        <div class="section-head">
+          <div><span class="step">R</span><h2 id="starTitle">獲得する星明かり</h2></div>
+        </div>
+        <p class="star-total"><strong id="starTotal">0</strong><span id="starNet"></span></p>
+        <ul id="starBreakdown" class="star-breakdown"></ul>
+        <p class="gift-recommendation-note">計算式は攻略 Wiki「シーシュポスの鏡」より: 基本60 + 編成ボーナス + 戦闘報酬カード + 制約P×15 + (探査点数 + 鉄道パック×5) × 倍率。倍率は 1 + 編成ボーナス×0.017（最大2）。端数の扱いで実際と1ずれることがあります。</p>
+      </section>
+    </section>
+
     <footer>
       <p>非公式ファンツール。Project Moon および Limbus Company 公式とは関係ありません。</p>
       <p>データ: <a href="https://wikiwiki.jp/lcbwiki/一覧表/パッシブスキル" target="_blank" rel="noreferrer">LimbusCompany攻略 Wiki</a> / <a href="https://limbus.eldritchtools.com" target="_blank" rel="noreferrer">Limbus Company Tools</a>（2026-10-07取得）</p>
@@ -214,11 +245,12 @@
     <p id="giftPreviewEffect" class="gift-preview-effect"></p>
   </dialog>
 
-  <script src="data.js?v=20261007-1"></script>
-  <script src="gift-overrides.js?v=20261007-1"></script>
-  <script src="support-data.js?v=20261007-1"></script>
-  <script src="support-ranking.js?v=20261007-1"></script>
-  <script src="app.js?v=20261007-1"></script>
-  <script src="support.js?v=20261007-1"></script>
+  <script src="data.js?v=20261119-1"></script>
+  <script src="gift-overrides.js?v=20261119-1"></script>
+  <script src="support-data.js?v=20261119-1"></script>
+  <script src="support-ranking.js?v=20261119-1"></script>
+  <script src="app.js?v=20261119-1"></script>
+  <script src="starlight.js?v=20261119-1"></script>
+  <script src="support.js?v=20261119-1"></script>
 </body>
 </html>

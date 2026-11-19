@@ -118,10 +118,10 @@
   $("soloSinner").onchange = chooseSinner;
   $("soloIdentity").onchange = event => render(identities.find(identity => identity.id === event.target.value));
   document.querySelectorAll(".tool-tab").forEach(button => button.onclick = () => {
-    const support = button.dataset.tool === "support";
-    $("giftTool").hidden = support;
-    $("giftMobileNav").hidden = support;
-    $("supportTool").hidden = !support;
+    const tool = button.dataset.tool;
+    $("giftTool").hidden = $("giftMobileNav").hidden = tool !== "gift";
+    $("supportTool").hidden = tool !== "support";
+    $("starTool").hidden = tool !== "star";
     document.querySelectorAll(".tool-tab").forEach(tab => {
       tab.classList.toggle("active", tab === button);
       tab.setAttribute("aria-pressed", String(tab === button));
